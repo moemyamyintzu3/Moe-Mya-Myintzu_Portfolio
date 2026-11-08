@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Applies the theme before the page draws, so dark mode never flashes light. -->
+    <script>
+      (function () {
+        var theme = null;
+        try { theme = localStorage.getItem("theme"); } catch (error) {}
+        // Light is the default. Dark mode only turns on after the switch is clicked.
+        if (theme !== "dark") theme = "light";
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Moe Mya Myintzu_Portfolio</title>
+    <link rel="icon" type="image/png" href="../namelogo.png" />
+    <link rel="apple-touch-icon" href="../namelogo.png" />
+    <meta
+      name="description"
+      content="Case study: designing Lumen, a book app that brings reading, listening, and community together."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400&family=Lora:wght@400;700&family=Outfit:wght@400&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css?v=23" />
+    <link rel="stylesheet" href="../cursor.css?v=4" />
+    <link rel="stylesheet" href="../navbar-motion.css?v=1" />
+    <link rel="stylesheet" href="../theme-switch.css?v=1" />
+    <link rel="stylesheet" href="../resume-button.css?v=1" />
+    <link rel="stylesheet" href="../css/responsive.css?v=4" />
+    <!-- Hides the content until animations.js is ready, and gives up after 2.5s if it never loads. -->
+    <style>.anim-wait main { opacity: 0; }</style>
+    <script>
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("anim-wait");
+        setTimeout(function () { document.documentElement.classList.remove("anim-wait"); }, 2500);
+      }
+    </script>
+  </head>
+  <body id="top" class="is-responsive">
+    <!-- SHARED NAVBAR: copy this block to every page and move. -->
+    <header class="navbar">
+      <a class="navbar__logo" href="work.html" aria-label="Moe Mya Myintzu, home">
+        <img src="../namelogo.png" alt="" width="54" height="54" />
+      </a>
+      <nav class="navbar__links" aria-label="Main navigation">
+        <a class="navbar__link" href="work.html">Work</a>
+        <a class="navbar__link" href="about.html">About</a>
+        <a class="navbar__link" href="fun.html">Fun</a>
+        <a class="navbar__resume" href="../MoeMyaMyintzu_Resume.pdf" target="_blank" rel="noopener" aria-label="Open Moe Mya Myintzu's resume (PDF, opens in new tab)">
+          <span class="navbar__resume-icon" aria-hidden="true">
+            <svg class="navbar__resume-arrow" viewBox="0 0 18 18"><path d="M9 2.5v8.5M5.5 7.5 9 11l3.5-3.5" /></svg>
+            <svg class="navbar__resume-tray" viewBox="0 0 18 18"><path d="M3 11.5v2.5a1.5 1.5 0 0 0 1.5 1.5h9a1.5 1.5 0 0 0 1.5-1.5v-2.5" /></svg>
+          </span>
+          <span class="navbar__resume-label">Resume</span>
+        </a>
+      </nav>
+    </header>
+    <!-- END SHARED NAVBAR -->
+
+    <div class="page">
+      <!-- Each element is placed at its Figma position using --x, --y, and --w. -->
+      <main class="lumen">
+        <section aria-label="Project introduction">
+          <h1 class="at lumen-title" style="--x:562px;--y:23px">Lumen Book App</h1>
+          <p class="at lumen-case" style="--x:670px;--y:74px">Case Study</p>
+          <img class="at " style="--x:244px;--y:166px" src="../Photos/lumen/lumen1.png" alt="Lumen phone screens: chat, book details, home, and profile, with the tagline “Designing a reading app that fits busy lives and brings readers together”" width="986" height="624" />
+          <img class="at lumen-logo-white" style="--x:718px;--y:121px" src="../Photos/lumen/lumenlogo2.png" alt="" width="92" height="91" />
+          <img class="at lumen-logo-purple" style="--x:657px;--y:129px" src="../lumenlogo.png" alt="Lumen logo" width="88" height="84" />
+        </section>
+        <nav class="lumen-contents" aria-label="Contents">
+            <p class="at lumen-contents__label" style="--x:0px;--y:0px">CONTENTS</p>
+            <a class="at lumen-contents__link" style="--x:0px;--y:20px" href="#overview">Overview</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:48px" href="#highlights">Highlights</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:76px" href="#challenge">The Challenge</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:104px" href="#solution">The Solution</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:129px" href="#research">Research Summary</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:157px" href="#information-architecture">Information Architecture</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:185px" href="#user-flow">User Flow</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:213px" href="#wireframe">Wireframe</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:238px" href="#key-features">Key Features</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:266px" href="#reflections">Reflections</a>
+            <a class="at lumen-contents__link" style="--x:1px;--y:294px" href="#top">back to Top</a>
+        </nav>
+        <section aria-label="Overview">
+          <div class="at lumen-panel" style="--x:129px;--y:870px;--w:1157px;--h:615px"></div>
+          <h2 class="at lumen-heading" style="--x:237px;--y:924px" id="overview">✨ Overview</h2>
+          <p class="at lumen-label" style="--x:237px;--y:1007px">ROLE</p>
+          <p class="at lumen-value" style="--x:363px;--y:1005px;--w:743px">UX/UI Designer</p>
+          <p class="at lumen-label" style="--x:237px;--y:1068px">PLATFORM</p>
+          <p class="at lumen-value" style="--x:363px;--y:1066px;--w:743px">Mobile app [iOS / Android]</p>
+          <p class="at lumen-label" style="--x:237px;--y:1122px">Timeline</p>
+          <p class="at lumen-value" style="--x:363px;--y:1120px;--w:743px">2025</p>
+          <p class="at lumen-label" style="--x:237px;--y:1176px">TOOLS</p>
+          <p class="at lumen-value" style="--x:363px;--y:1174px;--w:743px">Figma</p>
+          <p class="at lumen-label" style="--x:237px;--y:1230px">DELIVERABLES</p>
+          <p class="at lumen-value" style="--x:363px;--y:1228px;--w:743px">Information Architecture, User Flow, Low-Fidelity Wireframes, Design System, High-Fidelity UI, Interactive Prototype</p>
+          <p class="at lumen-label" style="--x:237px;--y:1309px">OVERVIEW</p>
+          <p class="at lumen-value" style="--x:363px;--y:1307px;--w:743px">Many readers want to read more but can’t find the time, myself and my friends included. I designed Lumen, a book app that fits reading into everyday life by combining a searchable library, audiobooks with synced subtitles, and group chats for discussing books. Whether commuting, winding down at night, or squeezing in a chapter between tasks, readers can enjoy their next story anytime, anywhere.</p>
+          <p class="at lumen-value" style="--x:363px;--y:1399px;--w:743px">I chose the name Lumen, meaning “light” in Latin, because I wanted the app to make reading feel accessible, bright, and easy to enjoy anytime.</p>
+        </section>
+        <section aria-label="Highlights">
+          <h2 class="at lumen-heading" style="--x:237px;--y:1546px" id="highlights">✨ Highlights</h2>
+          <img class="at " style="--x:233px;--y:1627px" src="../Photos/lumen/lumen_highlight.png" alt="Lumen high-fidelity screens, including QR scan, book details, library, chat, and search" width="986" height="543" />
+          <p class="at lumen-caption" style="--x:1110px;--y:2173px">Lumen User Interface</p>
+          <img class="at " style="--x:237px;--y:2247px" src="../Photos/lumen/lumen_typography.png" alt="Lumen design system: Poppins typography scale, brand and status colors, and interface components" width="978" height="535" />
+          <p class="at lumen-caption" style="--x:1106px;--y:2793px">Lumen Design System</p>
+        </section>
+        <section aria-label="The Challenge">
+          <div class="at lumen-panel" style="--x:145px;--y:2844px;--w:1141px;--h:920px"></div>
+          <h2 class="at lumen-heading" style="--x:237px;--y:2963px" id="challenge">✨ The Challenge</h2>
+          <span class="at lumen-ring" style="--x:239px;--y:3054px"></span>
+          <h3 class="at lumen-subheading" style="--x:271px;--y:3052px">Problem Framing</h3>
+          <img class="at illo-line" style="--x:241px;--y:3101px" src="../Photos/lumen/lumen_challenge.png" alt="Illustration of a person surrounded by social media posts and messages" width="280" height="246" />
+          <p class="at lumen-body" style="--x:545px;--y:3120px;--w:630px">Many readers want to read more but struggle to make it a habit. Busy schedules leave little room to sit down with a book, and most reading apps offer only one way to read, few ways to personalize the experience, and no real place to talk about what you’re reading. Reading ends up feeling like a solo task you have to schedule, rather than something that fits into your day.<br /><br />Existing apps usually solve one piece at a time. Readers end up switching between a library app, an audiobook app, and a messaging app just to read, listen, and discuss the same book. There’s a clear gap for one flexible, welcoming app where you can read or listen depending on your day, and share the experience with a community of fellow readers. Lumen is designed to fill it.</p>
+          <span class="at lumen-ring" style="--x:239px;--y:3380px"></span>
+          <h3 class="at lumen-subheading" style="--x:271px;--y:3378px">Pinpointing Issues</h3>
+          <img class="at illo-color" style="--x:260px;--y:3448px" src="../Photos/lumen/lumen_challenge1.png" alt="" width="40" height="53" />
+          <img class="at illo-color" style="--x:260px;--y:3554px" src="../Photos/lumen/lumen_challenge2.png" alt="" width="40" height="53" />
+          <img class="at illo-color" style="--x:261px;--y:3660px" src="../Photos/lumen/lumen_challenge3.png" alt="" width="40" height="53" />
+          <img class="at illo-color" style="--x:732px;--y:3452px" src="../Photos/lumen/lumen_challenge4.png" alt="" width="40" height="53" />
+          <img class="at illo-color" style="--x:732px;--y:3552px" src="../Photos/lumen/lumen_challenge5.png" alt="" width="40" height="53" />
+          <img class="at illo-color" style="--x:732px;--y:3658px" src="../Photos/lumen/lumen_challenge6.png" alt="" width="40" height="53" />
+          <p class="at lumen-body" style="--x:326px;--y:3458px;--w:371px"><strong>Inconsistent Habits:</strong> Readers struggle to stay on track with their reading goals</p>
+          <p class="at lumen-body" style="--x:326px;--y:3561px;--w:356px"><strong>Limited Time:</strong> Busy schedules leave little room to sit down with a book</p>
+          <p class="at lumen-body" style="--x:326px;--y:3667px;--w:363px"><strong>Rigid Formats:</strong> Most apps support either reading or listening, not both</p>
+          <p class="at lumen-body" style="--x:807px;--y:3458px;--w:396px"><strong>Fragmented Experiences:</strong> Readers switch between separate apps to read, listen, and discuss the same book</p>
+          <p class="at lumen-body" style="--x:807px;--y:3566px;--w:402px"><strong>Low Personalization:</strong> Book discovery doesn’t feel tailored to each reader</p>
+          <p class="at lumen-body" style="--x:807px;--y:3667px;--w:361px"><strong>Missing Community:</strong> It’s hard to connect with readers who love the same books</p>
+        </section>
+        <section aria-label="The Solution">
+          <h2 class="at lumen-heading" style="--x:237px;--y:3856px" id="solution">✨ The Solution</h2>
+          <span class="at lumen-ring" style="--x:241px;--y:3935px"></span>
+          <h3 class="at lumen-subheading" style="--x:273px;--y:3933px">Our Goals</h3>
+          <p class="at lumen-body lumen-body--large" style="--x:271px;--y:3992px;--w:938px">Our solution is a book app that seamlessly brings reading, listening, and community together in one place. Lumen creates a flexible digital space where readers can:</p>
+          <img class="at " style="--x:243px;--y:4067px" src="../Photos/lumen/lumen_solution.png" alt="What readers can do in Lumen: read or listen to the same book, follow audiobooks with synced subtitles, find new books through search, genres, and authors, keep recent, favorite, and finished books in one library, join or create group chats, and add friends" width="966" height="395" />
+          <p class="at lumen-body lumen-body--large" style="--x:273px;--y:4499px;--w:756px">All wrapped in a clean, intuitive interface that makes reading simple and accessible.</p>
+          <span class="at lumen-ring" style="--x:241px;--y:4577px"></span>
+          <h3 class="at lumen-subheading" style="--x:273px;--y:4575px">High Level Goals</h3>
+          <img class="at illo-diagram" style="--x:237px;--y:4640px" src="../Photos/lumen/lumen_goals.png" alt="Six high-level goals: encourage a steady reading habit, design for busy days, offer flexible formats, create one unified app, make finding books quick, and build community" width="966" height="248" />
+          <span class="at lumen-ring" style="--x:243px;--y:4919px"></span>
+          <h3 class="at lumen-subheading" style="--x:275px;--y:4917px">Target Audience</h3>
+          <p class="at lumen-body lumen-body--large" style="--x:273px;--y:4974px;--w:938px">Busy readers, curious minds, and community seekers, from casual listeners to dedicated bibliophiles.</p>
+        </section>
+        <section aria-label="Research Summary">
+          <div class="at lumen-panel" style="--x:135px;--y:5058px;--w:1151px;--h:1872px"></div>
+          <h2 class="at lumen-heading" style="--x:227px;--y:5106px" id="research">✨Research Summary</h2>
+          <span class="at lumen-ring" style="--x:229px;--y:5197px"></span>
+          <h3 class="at lumen-subheading" style="--x:261px;--y:5195px">Market Insights &amp; Competitor Analysis</h3>
+          <p class="at lumen-body" style="--x:265px;--y:5244px;--w:970px">I analyzed popular book apps to see how readers currently read, listen, and connect. I looked at apps for reading, audiobooks, and book communities, since Lumen combines all three.</p>
+          <img class="at illo-diagram" style="--x:260px;--y:5303px" src="../Photos/lumen/lumen_competitor.png" alt="Competitor comparison of Audible, Goodreads, Kindle, and Libby, listing the strengths and weaknesses of each" width="939" height="314" />
+          <!-- The same image again, shown over just the app logos in dark mode, so the logos keep their real colors. -->
+          <img class="at illo-logos" style="--x:260px;--y:5303px" src="../Photos/lumen/lumen_competitor.png" alt="" aria-hidden="true" width="939" height="314" loading="lazy" />
+          <p class="at lumen-body" style="--x:265px;--y:5660px;--w:958px">This analysis showed that no single app combines reading, listening, and community well. It left room for Lumen to bring these together in one simple experience.</p>
+          <h2 class="at lumen-heading" style="--x:227px;--y:5794px" id="information-architecture">✨Information Architecture</h2>
+          <img class="at illo-diagram" style="--x:226px;--y:5860px" src="../Photos/lumen/lumen_informationarchitecture.png" alt="Information architecture: Lumen branches into Home, Search, Library, Community Chat, and Profile, each with its own sub-pages" width="1008" height="542" />
+          <h2 class="at lumen-heading" style="--x:226px;--y:6472px" id="user-flow">✨User Flow</h2>
+          <img class="at illo-diagram" style="--x:240px;--y:6548px" src="../Photos/lumen/lumen_userflow.png" alt="User flow from opening Lumen, through logging in or signing up, to choosing a book and reading or listening" width="1008" height="336" />
+        </section>
+        <section aria-label="Ideation">
+          <h2 class="at lumen-heading" style="--x:227px;--y:6980px" id="ideation">✨Ideation</h2>
+          <p class="at lumen-body lumen-body--medium" style="--x:264px;--y:7046px;--w:970px">The ideation process began with defining Lumen’s core features and target users. I focused on balancing the app’s three sides: reading, listening, and community. Key considerations included:</p>
+          <img class="at illo-color" style="--x:264px;--y:7118px" src="../Photos/lumen/from-export/bulb.png" alt="" width="46" height="46" />
+          <p class="at lumen-body lumen-body--medium" style="--x:314px;--y:7133px;--w:811px">How to let readers switch between reading and listening to the same book without losing their place</p>
+          <img class="at illo-color" style="--x:264px;--y:7184px" src="../Photos/lumen/from-export/bulb.png" alt="" width="46" height="46" />
+          <p class="at lumen-body lumen-body--medium" style="--x:314px;--y:7199px;--w:811px">How to make audiobooks easier to follow, using synced subtitles</p>
+          <img class="at illo-color" style="--x:264px;--y:7250px" src="../Photos/lumen/from-export/bulb.png" alt="" width="46" height="46" />
+          <p class="at lumen-body lumen-body--medium" style="--x:314px;--y:7265px;--w:811px">How to make finding books quick through search, genres, and authors</p>
+          <img class="at illo-color" style="--x:264px;--y:7316px" src="../Photos/lumen/from-export/bulb.png" alt="" width="46" height="46" />
+          <p class="at lumen-body lumen-body--medium" style="--x:314px;--y:7331px;--w:811px">How to keep the library clear and simple, with Recent, Favorites, and Finished lists</p>
+          <img class="at illo-color" style="--x:264px;--y:7382px" src="../Photos/lumen/from-export/bulb.png" alt="" width="46" height="46" />
+          <p class="at lumen-body lumen-body--medium" style="--x:314px;--y:7397px;--w:811px">How to build community through group chats and friends without overwhelming the reader</p>
+        </section>
+        <section aria-label="Wireframing">
+          <h2 class="at lumen-heading" style="--x:238px;--y:7484px" id="wireframe">✨Wireframing</h2>
+          <p class="at lumen-body" style="--x:281px;--y:7550px;--w:970px">I created low-fidelity wireframes for the main screens (Home, Search, Library, Community Chat, and Profile) to plan the layout and navigation before starting the visual design:</p>
+          <img class="at " style="--x:227px;--y:7608px" src="../Photos/lumen/lumen_wireframe.png" alt="Low-fidelity wireframes of the Home, Community, Book, Search, Chat, and Profile screens" width="986" height="543" />
+          <p class="at lumen-body" style="--x:271px;--y:8173px;--w:938px">These wireframes helped me settle the structure of each screen and how users move between them, giving me a solid foundation for the UI design.</p>
+        </section>
+        <section aria-label="Key Features">
+          <div class="at lumen-panel" style="--x:135px;--y:8289px;--w:1151px;--h:1886px"></div>
+          <h2 class="at lumen-heading" style="--x:226px;--y:8324px" id="key-features">✨Key Features</h2>
+          <span class="at lumen-ring" style="--x:231px;--y:8398px"></span>
+          <h3 class="at lumen-subheading" style="--x:263px;--y:8396px">Home Page</h3>
+          <p class="at lumen-feature" style="--x:240px;--y:8506px;--w:480px">The Home section shows readers what to read next, with:<br /><br /><span class="lumen-seed">🌱</span> Top 10 books of the day to see what’s trending<br /><span class="lumen-seed">🌱</span> New Releases for readers looking for something fresh<br /><span class="lumen-seed">🌱</span> Quick access to Search, Library, Community, and Profile</p>
+          <img class="at " style="--x:752px;--y:8428px" src="../Photos/lumen/lumen_home.png" alt="Three phones showing the Lumen home screen" width="504" height="251" />
+          <span class="at lumen-ring" style="--x:226px;--y:8742px"></span>
+          <h3 class="at lumen-subheading" style="--x:258px;--y:8740px">Search</h3>
+          <img class="at " style="--x:226px;--y:8791px" src="../Photos/lumen/lumen_search.png" alt="Three phones showing genre browsing, search results, and the library" width="469" height="251" />
+          <p class="at lumen-feature" style="--x:787px;--y:8869px;--w:480px">The Search section helps readers find their next book quickly:<br /><br /><span class="lumen-seed">🌱</span> Browse by genre, from Fantasy to Crime to Historical Fiction<br /><span class="lumen-seed">🌱</span> Author lists to explore more from writers you love<br /><span class="lumen-seed">🌱</span> Ratings on each book to compare at a glance</p>
+          <span class="at lumen-ring" style="--x:226px;--y:9098px"></span>
+          <h3 class="at lumen-subheading" style="--x:258px;--y:9096px">Read or Listen</h3>
+          <p class="at lumen-feature" style="--x:231px;--y:9222px;--w:480px">Every book in Lumen can be enjoyed in two ways:<br /><br /><span class="lumen-seed">🌱</span> Read Now and Listen Now buttons on every book page<br /><span class="lumen-seed">🌱</span> Audiobooks with synced subtitles, so you can follow along<br /><span class="lumen-seed">🌱</span> Book details at a glance, including genre, rating, and a preview</p>
+          <img class="at " style="--x:766px;--y:9149px" src="../Photos/lumen/lumen_listen.png" alt="Three phones showing a chapter, book details, and the audiobook player" width="469" height="251" />
+          <span class="at lumen-ring" style="--x:226px;--y:9454px"></span>
+          <h3 class="at lumen-subheading" style="--x:258px;--y:9452px">Community Chat</h3>
+          <img class="at " style="--x:226px;--y:9503px" src="../Photos/lumen/lumen_chat.png" alt="Three phones showing the community chat screens" width="469" height="251" />
+          <p class="at lumen-feature" style="--x:787px;--y:9576px;--w:485px">The Community section turns reading into something social:<br /><br /><span class="lumen-seed">🌱</span> Join groups for genres and fandoms, like Sci-Fi &amp; Fantasy Lounge<br /><span class="lumen-seed">🌱</span> Create your own group for your favorite books<br /><span class="lumen-seed">🌱</span> Add friends to share the reading experience</p>
+          <span class="at lumen-ring" style="--x:226px;--y:9810px"></span>
+          <h3 class="at lumen-subheading" style="--x:258px;--y:9808px">Profile</h3>
+          <p class="at lumen-feature" style="--x:231px;--y:9940px;--w:480px">The Profile section keeps the app personal and simple:<br /><br /><span class="lumen-seed">🌱</span> Account and notification settings<br /><span class="lumen-seed">🌱</span> Dark mode for comfortable reading at night<br /><span class="lumen-seed">🌱</span> Contact us and FAQ for help</p>
+          <img class="at " style="--x:766px;--y:9862px" src="../Photos/lumen/lumen_profile.png" alt="Three phones showing the profile and settings screens" width="469" height="251" />
+        </section>
+        <section aria-label="Dark Mode">
+          <h2 class="at lumen-heading" style="--x:208px;--y:10248px" id="dark-mode">✨Dark Mode</h2>
+          <img class="at " style="--x:227px;--y:10331px" src="../Photos/lumen/lumen_darkmode.png" alt="Lumen screens in dark mode" width="986" height="543" />
+        </section>
+        <section aria-label="Reflections">
+          <div class="at lumen-panel" style="--x:135px;--y:10970px;--w:1151px;--h:1087px"></div>
+          <h2 class="at lumen-heading" style="--x:228px;--y:11022px" id="reflections">✨ Reflections</h2>
+          <span class="at lumen-ring" style="--x:231px;--y:11107px"></span>
+          <h3 class="at lumen-subheading" style="--x:263px;--y:11105px">Key Takeaways</h3>
+          <img class="at illo-line" style="--x:237px;--y:11181px" src="../Photos/lumen/from-export/takeaway1.png" alt="" width="91" height="84" />
+          <p class="at lumen-takeaway" style="--x:345px;--y:11185px;--w:325px">Flexibility is essential: Designing one app for reading, listening, and community means every feature has to work for readers with very different routines.</p>
+          <img class="at illo-line" style="--x:750px;--y:11185px" src="../Photos/lumen/from-export/takeaway2.png" alt="" width="91" height="84" />
+          <p class="at lumen-takeaway" style="--x:858px;--y:11198px;--w:325px">Community should feel welcoming: Group chats and friends add value only when they’re easy to join and never overwhelm the reader.</p>
+          <img class="at illo-line" style="--x:237px;--y:11326px" src="../Photos/lumen/from-export/takeaway3.png" alt="" width="91" height="84" />
+          <p class="at lumen-takeaway" style="--x:345px;--y:11330px;--w:325px">A cohesive design system: Defining colors, typography, and light and dark mode early made every screen faster to design and more consistent.</p>
+          <img class="at illo-line" style="--x:750px;--y:11326px" src="../Photos/lumen/from-export/takeaway4.png" alt="" width="91" height="84" />
+          <p class="at lumen-takeaway" style="--x:858px;--y:11339px;--w:325px">Competitive analysis insights: Seeing what Audible, Goodreads, Kindle, and Libby do well and poorly showed the gap Lumen fills.</p>
+          <img class="at illo-line" style="--x:237px;--y:11471px" src="../Photos/lumen/from-export/takeaway5.png" alt="" width="91" height="84" />
+          <p class="at lumen-takeaway" style="--x:345px;--y:11475px;--w:325px">Two modes, one experience: Letting readers switch between reading and listening only works if the flow stays simple and the same book feels familiar in both.</p>
+          <img class="at illo-line" style="--x:750px;--y:11475px" src="../Photos/lumen/from-export/takeaway6.png" alt="" width="91" height="84" />
+          <p class="at lumen-takeaway" style="--x:858px;--y:11490px;--w:325px">Simplicity wins: Even with many possible features, keeping the core experience clear mattered more than adding more.</p>
+          <span class="at lumen-ring" style="--x:233px;--y:11618px"></span>
+          <h3 class="at lumen-subheading" style="--x:265px;--y:11616px">Next Steps</h3>
+          <p class="at lumen-body lumen-body--medium" style="--x:237px;--y:11682px;--w:917px">My immediate next steps include:<br /><br /><span class="lumen-seed">🌱</span> Running usability tests on the prototype with a small group of readers<br /><span class="lumen-seed">🌱</span> Refining the experience based on their feedback<br /><span class="lumen-seed">🌱</span> Adding empty states and onboarding illustrations<br /><span class="lumen-seed">🌱</span> Expanding personalization and book recommendations<br /><span class="lumen-seed">🌱</span> Building a roadmap for future features</p>
+          <p class="at lumen-body lumen-body--medium" style="--x:237px;--y:11867px;--w:917px">Looking further ahead, I’d like to grow the community features and explore more ways for readers to make Lumen feel like their own space.<br /><br />Thank you for checking out this project! ❤️</p>
+          <a class="at lumen-prototype" style="--x:234px;--y:11979px" href="https://www.figma.com/proto/LFibpKw84uCNxIlckaDOZS/Lumen-app_MoeMyaMyintzu?node-id=548-6782&amp;p=f&amp;viewport=2715%2C-1232%2C0.15&amp;t=zRuWcG2EYnJOi09Q-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=548%3A6776&amp;page-id=0%3A1" target="_blank" rel="noopener noreferrer">View Prototype</a>
+        </section>
+      </main>
+    </div>
+
+    <!-- SHARED FOOTER: copy this block to every page. -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <section class="footer__column footer__column--navigation">
+          <h2 class="footer__heading">✨ navigation</h2>
+          <ul class="footer__links">
+            <li><a class="footer__link--work" href="work.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="fun.html">Fun</a></li>
+          </ul>
+        </section>
+        <section class="footer__column footer__column--contact">
+          <h2 class="footer__heading">🌙 contact</h2>
+          <!-- TODO: Instagram still needs a real link or removing. -->
+          <ul class="footer__links">
+            <li><a href="https://www.linkedin.com/in/moe-mya-myintzu-12b960347" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=moemyamyintzu@gmail.com" target="_blank" rel="noopener noreferrer">Email</a></li>
+            <li><a href="https://www.behance.net/moemyamyintzu" target="_blank" rel="noopener noreferrer">Behance</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="https://www.facebook.com/share/1GcZFzNuwt/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          </ul>
+        </section>
+        <section class="footer__column footer__column--case-studies">
+          <h2 class="footer__heading">💫 case studies</h2>
+          <ul class="footer__links">
+            <li><a href="lumen.html">Lumen</a></li>
+            <li><a href="pawmatch.html">Paw Match</a></li>
+            <li><a href="hrtech.html">HR-Tech</a></li>
+          </ul>
+        </section>
+        <p class="footer__copyright">
+          <img src="../Photos/icons/copyright.svg" alt="Copyright" width="12" height="12" />
+          2025- Moe Mya Myintzu
+        </p>
+        <p class="footer__tagline">
+          made with love and iced strawberry matcha lattes <span class="footer__emoji">🫶🏼🧊🍓🍵</span>
+        </p>
+      </div>
+    </footer>
+    <!-- END SHARED FOOTER -->
+    <script src="../cursor.js?v=3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@14.6.0/dist/motion.js" integrity="sha384-wyFtoWIFus6Butv1mjUTfcosTs0hTxLly4xsBL9KKBbd+WuuXov75vD9yhy5UZv9" crossorigin="anonymous"></script>
+    <script src="../navbar-motion.js?v=2"></script>
+    <script src="../resume-button.js?v=1"></script>
+    <script src="../theme.js?v=3"></script>
+    <script src="../mobile-menu.js?v=2"></script>
+    <script src="../case-study-flow.js?v=1"></script>    <script src="../animations.js?v=7"></script>
+    <script src="../prototype-button.js?v=2"></script>
+  </body>
+</html>

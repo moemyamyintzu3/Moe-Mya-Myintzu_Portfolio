@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Applies the theme before the page draws, so dark mode never flashes light. -->
+    <script>
+      (function () {
+        var theme = null;
+        try { theme = localStorage.getItem("theme"); } catch (error) {}
+        // Light is the default. Dark mode only turns on after the switch is clicked.
+        if (theme !== "dark") theme = "light";
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Moe Mya Myintzu_Portfolio</title>
+    <link rel="icon" type="image/png" href="../namelogo.png" />
+    <link rel="apple-touch-icon" href="../namelogo.png" />
+    <meta
+      name="description"
+      content="About Moe Mya Myintzu, a software engineering student and UX/UI designer."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400&family=Lora:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css?v=23" />
+    <link rel="stylesheet" href="../cursor.css?v=4" />
+    <link rel="stylesheet" href="../navbar-motion.css?v=1" />
+    <link rel="stylesheet" href="../theme-switch.css?v=1" />
+    <link rel="stylesheet" href="../resume-button.css?v=1" />
+    <link rel="stylesheet" href="../css/responsive.css?v=4" />
+    <!-- Hides the content until animations.js is ready, and gives up after 2.5s if it never loads. -->
+    <style>.anim-wait main { opacity: 0; }</style>
+    <script>
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("anim-wait");
+        setTimeout(function () { document.documentElement.classList.remove("anim-wait"); }, 2500);
+      }
+    </script>
+  </head>
+  <body class="is-responsive">
+    <!-- SHARED NAVBAR: copy this block to every page and move navbar__link--active. -->
+    <header class="navbar">
+      <a class="navbar__logo" href="work.html" aria-label="Moe Mya Myintzu, home">
+        <img src="../namelogo.png" alt="" width="54" height="54" />
+      </a>
+      <nav class="navbar__links" aria-label="Main navigation">
+        <a class="navbar__link" href="work.html">Work</a>
+        <a class="navbar__link navbar__link--active" href="about.html" aria-current="page">About</a>
+        <a class="navbar__link" href="fun.html">Fun</a>
+        <a class="navbar__resume" href="../MoeMyaMyintzu_Resume.pdf" target="_blank" rel="noopener" aria-label="Open Moe Mya Myintzu's resume (PDF, opens in new tab)">
+          <span class="navbar__resume-icon" aria-hidden="true">
+            <svg class="navbar__resume-arrow" viewBox="0 0 18 18"><path d="M9 2.5v8.5M5.5 7.5 9 11l3.5-3.5" /></svg>
+            <svg class="navbar__resume-tray" viewBox="0 0 18 18"><path d="M3 11.5v2.5a1.5 1.5 0 0 0 1.5 1.5h9a1.5 1.5 0 0 0 1.5-1.5v-2.5" /></svg>
+          </span>
+          <span class="navbar__resume-label">Resume</span>
+        </a>
+      </nav>
+    </header>
+    <!-- END SHARED NAVBAR -->
+
+    <div class="page">
+      <main>
+        <h1 class="about-title">💫 About Me</h1>
+
+        <section class="about-intro" aria-label="Introduction">
+          <h2 class="about-intro__heading">
+            <span class="about-intro__heading-text">Hi there,</span>
+            <span class="about-intro__heading-text about-intro__heading-text--bold">I'm Moe Mya Myintzu!</span>👋
+          </h2>
+          <div class="about-intro__bio">
+            <p>
+              I’m a fourth-year software engineering student and UX/UI designer, passionate about the
+              space where code and design meet. That’s where ideas become products people can actually
+              use and enjoy.
+            </p>
+            <p>
+              Currently, I’m a UX/UI Design Intern at ET.Verdict, where I build and maintain our design
+              system, improve existing experiences, and shape new features. I present my work in weekly
+              team reviews, share ideas, and give feedback to teammates, which has sharpened how I
+              communicate and collaborate.
+            </p>
+            <p>
+              As a programming course assistant at my university, I helped junior students debug their
+              code and explained not just how to fix errors, but why they happen. That experience taught
+              me to break down complex problems and explain them clearly, a skill I bring to every design
+              and engineering challenge.
+            </p>
+            <p>
+              I’m calm under pressure and curious about every kind of problem, whether it’s people,
+              design, or code. I care about clean, intuitive design that brings simplicity and joy to
+              users.
+              <br />
+              Feel free to reach out for a chat, and thanks for stopping by! 💕
+            </p>
+          </div>
+          <img
+            class="about-intro__photo"
+            src="../Photos/about/about_profilephoto.png"
+            alt="Moe Mya Myintzu presenting a user interface design to an audience"
+            width="392"
+            height="389"
+          />
+        </section>
+
+        <section aria-labelledby="experience-heading">
+          <h2 class="section-pill section-pill--experience" id="experience-heading">Experience</h2>
+          <div class="experience">
+            <article class="experience__item">
+              <h3 class="experience__role">UX / UI Designer</h3>
+              <div class="experience__details">
+                <p class="experience__place">ET.Verdict</p>
+                <p class="experience__dates">Sep 2026 - Current</p>
+              </div>
+            </article>
+            <article class="experience__item">
+              <h3 class="experience__role">Teaching Assistant</h3>
+              <div class="experience__details experience__details--university">
+                <p class="experience__place">Mae Fah Luang University</p>
+                <p class="experience__dates">Aug 2024 - Dec 2024</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="skills-heading">
+          <h2 class="section-pill section-pill--skills" id="skills-heading">Skills</h2>
+          <!-- Pill widths and gaps follow the Figma frame exactly, so each pill sets its own. -->
+          <div class="skills">
+            <ul class="skills__row">
+              <li class="skill" style="width: 142px; margin-right: 22px">Product Design</li>
+              <li class="skill" style="width: 122px; margin-right: 21px">UX Design</li>
+              <li class="skill" style="width: 122px; margin-right: 20px">UI Design</li>
+              <li class="skill" style="width: 156px; margin-right: 20px">Design Systems</li>
+              <li class="skill" style="width: 136px; margin-right: 20px">Prototyping</li>
+              <li class="skill" style="width: 136px">Wireframing</li>
+            </ul>
+            <ul class="skills__row">
+              <li class="skill" style="width: 124px; margin-right: 18px">Interaction</li>
+              <li class="skill" style="width: 149px; margin-right: 10px">Usability Testing</li>
+              <li class="skill" style="width: 218px; margin-right: 24px">Front-End Development</li>
+              <li class="skill" style="width: 96px; margin-right: 24px">HTML</li>
+              <li class="skill skill--lowered" style="width: 96px; margin-right: 24px">CSS</li>
+              <li class="skill" style="width: 127px">JavaScript</li>
+            </ul>
+            <ul class="skills__row">
+              <li class="skill" style="width: 95px; margin-right: 22px">React</li>
+              <li class="skill" style="width: 123px; margin-right: 16px">UX Research</li>
+              <li class="skill" style="width: 100px; margin-right: 24px">Figma</li>
+              <li class="skill" style="width: 123px; margin-right: 26px">Git &amp; GitHub</li>
+              <li class="skill" style="width: 184px; margin-right: 20px">Empathy Interviews</li>
+              <li class="skill" style="width: 177px">Design Feedback</li>
+            </ul>
+            <ul class="skills__row">
+              <li class="skill" style="width: 142px; margin-right: 22px">Documentation</li>
+              <li class="skill" style="width: 156px; margin-right: 22px">Communication</li>
+              <li class="skill" style="width: 156px; margin-right: 18px">Problem Solving</li>
+              <li class="skills__more">+More</li>
+            </ul>
+          </div>
+        </section>
+
+        <section aria-labelledby="tools-heading">
+          <h2 class="section-pill section-pill--tools" id="tools-heading">Favorite Tools</h2>
+          <div class="tools">
+            <ul class="tools__row">
+              <li class="tool">
+                <img class="tool__icon tool__icon--figma" src="../Photos/icons/figma.svg" alt="" width="27.33" height="41" />
+                <span class="tool__name" style="top: 119px; left: 73px">Figma</span>
+              </li>
+              <li class="tool">
+                <img class="tool__icon" src="../Photos/icons/notion.svg" alt="" width="41" height="41" />
+                <span class="tool__name" style="top: 118px; left: 72px">Notion</span>
+              </li>
+              <li class="tool">
+                <img class="tool__icon" src="../Photos/icons/vscode.svg" alt="" width="41" height="41" />
+                <span class="tool__name" style="top: 118px; left: 66px">VSCode</span>
+              </li>
+            </ul>
+            <ul class="tools__row tools__row--second">
+              <li class="tool">
+                <img class="tool__icon" src="../Photos/icons/claude.svg" alt="" width="41" height="41" />
+                <span class="tool__name" style="top: 119px; left: 73px">Claude</span>
+              </li>
+              <li class="tool">
+                <img class="tool__icon" src="../Photos/icons/canva.svg" alt="" width="41" height="41" />
+                <span class="tool__name" style="top: 119px; left: 70px">Canva</span>
+              </li>
+              <li class="tool">
+                <img class="tool__icon" src="../Photos/icons/github.svg" alt="" width="41" height="41" />
+                <span class="tool__name" style="top: 118px; left: 72px">Github</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cert-section" aria-labelledby="certificates-heading">
+          <h2 class="section-pill section-pill--certificates" id="certificates-heading">Certificates</h2>
+          <p class="cert-subtitle">things I learned along the way</p>
+          <div class="cert-deck">
+            <button class="cert-card" type="button" data-title="Foundations of User Experience (UX) Design" data-meta="Google · Coursera · Feb 2026">
+              <span class="cert-card__face">
+                <img src="../Photos/about/about_certificate1.png" alt="Google course certificate: Foundations of User Experience (UX) Design, issued through Coursera, February 2026" width="1888" height="1436" loading="lazy" />
+              </span>
+            </button>
+            <button class="cert-card" type="button" data-title="Foundations of Digital Marketing and E-commerce" data-meta="Google · Coursera · Nov 2025">
+              <span class="cert-card__face">
+                <img src="../Photos/about/abour_certificate2.png" alt="Google course certificate: Foundations of Digital Marketing and E-commerce, issued through Coursera, November 2025" width="1888" height="1436" loading="lazy" />
+              </span>
+            </button>
+            <button class="cert-card" type="button" data-title="Internship Upskill &amp; Reskill: “Ready for the New-Age Career with AI”" data-meta="MFU Coop · Feb 2024">
+              <span class="cert-card__face">
+                <img src="../Photos/about/about_certificate3.png" alt="Mae Fah Luang University certificate of completion: Ready for the New-Age Career with AI, February 2024" width="1888" height="1436" loading="lazy" />
+              </span>
+            </button>
+            <button class="cert-card" type="button" data-title="Tech Camp Day" data-meta="Agoda · Sep 2024">
+              <span class="cert-card__face">
+                <img src="../Photos/about/about_certificate4.png" alt="Agoda Tech Camp Day certificate, September 2024" width="1888" height="1436" loading="lazy" />
+              </span>
+            </button>
+          </div>
+          <div class="cert-caption" aria-hidden="true">
+            <p class="cert-caption__title"></p>
+            <p class="cert-caption__meta"></p>
+          </div>
+        </section>
+
+        <p class="about-closing">hope you enjoyed learning a bit<br />more about me! ✨</p>
+      </main>
+      <div class="about-footer-spacer"></div>
+    </div>
+
+    <!-- SHARED FOOTER: copy this block to every page. -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <section class="footer__column footer__column--navigation">
+          <h2 class="footer__heading">✨ navigation</h2>
+          <ul class="footer__links">
+            <li><a class="footer__link--work" href="work.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="fun.html">Fun</a></li>
+          </ul>
+        </section>
+        <section class="footer__column footer__column--contact">
+          <h2 class="footer__heading">🌙 contact</h2>
+          <!-- TODO: Instagram still needs a real link or removing. -->
+          <ul class="footer__links">
+            <li><a href="https://www.linkedin.com/in/moe-mya-myintzu-12b960347" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=moemyamyintzu@gmail.com" target="_blank" rel="noopener noreferrer">Email</a></li>
+            <li><a href="https://www.behance.net/moemyamyintzu" target="_blank" rel="noopener noreferrer">Behance</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="https://www.facebook.com/share/1GcZFzNuwt/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          </ul>
+        </section>
+        <section class="footer__column footer__column--case-studies">
+          <h2 class="footer__heading">💫 case studies</h2>
+          <ul class="footer__links">
+            <li><a href="lumen.html">Lumen</a></li>
+            <li><a href="pawmatch.html">Paw Match</a></li>
+            <li><a href="hrtech.html">HR-Tech</a></li>
+          </ul>
+        </section>
+        <p class="footer__copyright">
+          <img src="../Photos/icons/copyright.svg" alt="Copyright" width="12" height="12" />
+          2025- Moe Mya Myintzu
+        </p>
+        <p class="footer__tagline">
+          made with love and iced strawberry matcha lattes <span class="footer__emoji">🫶🏼🧊🍓🍵</span>
+        </p>
+      </div>
+    </footer>
+    <!-- END SHARED FOOTER -->
+    <script src="../cursor.js?v=3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@14.6.0/dist/motion.js" integrity="sha384-wyFtoWIFus6Butv1mjUTfcosTs0hTxLly4xsBL9KKBbd+WuuXov75vD9yhy5UZv9" crossorigin="anonymous"></script>
+    <script src="../navbar-motion.js?v=2"></script>
+    <script src="../resume-button.js?v=1"></script>
+    <script src="../theme.js?v=3"></script>
+    <script src="../mobile-menu.js?v=2"></script>
+    <script src="../certificates.js?v=2"></script>
+    <script src="../animations.js?v=7"></script>
+  </body>
+</html>

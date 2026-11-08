@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Applies the theme before the page draws, so dark mode never flashes light. -->
+    <script>
+      (function () {
+        var theme = null;
+        try { theme = localStorage.getItem("theme"); } catch (error) {}
+        // Light is the default. Dark mode only turns on after the switch is clicked.
+        if (theme !== "dark") theme = "light";
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Moe Mya Myintzu_Portfolio</title>
+    <link rel="icon" type="image/png" href="../namelogo.png" />
+    <link rel="apple-touch-icon" href="../namelogo.png" />
+    <meta name="description" content="UX/UI case studies by product designer Moe Mya Myintzu." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400&family=Lora:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css?v=23" />
+    <link rel="stylesheet" href="../cursor.css?v=4" />
+    <link rel="stylesheet" href="../navbar-motion.css?v=1" />
+    <link rel="stylesheet" href="../theme-switch.css?v=1" />
+    <link rel="stylesheet" href="../resume-button.css?v=1" />
+    <link rel="stylesheet" href="../css/responsive.css?v=4" />
+    <!-- Hides the content until animations.js is ready, and gives up after 2.5s if it never loads. -->
+    <style>.anim-wait main { opacity: 0; }</style>
+    <script>
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("anim-wait");
+        setTimeout(function () { document.documentElement.classList.remove("anim-wait"); }, 2500);
+      }
+    </script>
+  </head>
+  <body class="is-responsive">
+    <!-- SHARED NAVBAR: copy this block to every page and move navbar__link--active. -->
+    <header class="navbar">
+      <a class="navbar__logo" href="work.html" aria-label="Moe Mya Myintzu, home">
+        <img src="../namelogo.png" alt="" width="54" height="54" />
+      </a>
+      <nav class="navbar__links" aria-label="Main navigation">
+        <a class="navbar__link navbar__link--active" href="work.html" aria-current="page">Work</a>
+        <a class="navbar__link" href="about.html">About</a>
+        <a class="navbar__link" href="fun.html">Fun</a>
+        <a class="navbar__resume" href="../MoeMyaMyintzu_Resume.pdf" target="_blank" rel="noopener" aria-label="Open Moe Mya Myintzu's resume (PDF, opens in new tab)">
+          <span class="navbar__resume-icon" aria-hidden="true">
+            <svg class="navbar__resume-arrow" viewBox="0 0 18 18"><path d="M9 2.5v8.5M5.5 7.5 9 11l3.5-3.5" /></svg>
+            <svg class="navbar__resume-tray" viewBox="0 0 18 18"><path d="M3 11.5v2.5a1.5 1.5 0 0 0 1.5 1.5h9a1.5 1.5 0 0 0 1.5-1.5v-2.5" /></svg>
+          </span>
+          <span class="navbar__resume-label">Resume</span>
+        </a>
+      </nav>
+    </header>
+    <!-- END SHARED NAVBAR -->
+
+    <div class="page">
+      <main>
+        <section class="hero" aria-label="Introduction">
+          <div class="hero__copy">
+            <h1 class="hero__title">
+              👋
+              <span class="hero__title-text">Hi there!</span>
+              <span class="hero__title-text hero__title-text--bold">I'm Moe Mya Myintzu.</span>
+            </h1>
+            <p class="hero__intro">
+              I'm a ✨ product designer, 🎨 UX/UI designer, and 🔍 curious thinker who loves solving
+              problems through thoughtful design.
+            </p>
+            <ul class="hero__social" aria-label="Social links">
+              <li>
+                <a href="https://www.linkedin.com/in/moe-mya-myintzu-12b960347" target="_blank" rel="noopener noreferrer" aria-label="Moe's LinkedIn" data-tooltip="LinkedIn" style="--brand: #0A66C2">
+                  <svg aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" width="31" height="31" viewBox="0 0 31 31" fill="none"><g><path d="M1.29167 3.66575C1.29235 3.03631 1.5427 2.43285 1.98777 1.98777C2.43285 1.5427 3.03631 1.29235 3.66575 1.29167H27.3317C27.6437 1.29116 27.9528 1.3522 28.2412 1.47129C28.5296 1.59039 28.7917 1.7652 29.0124 1.98573C29.2332 2.20625 29.4083 2.46815 29.5277 2.75643C29.6471 3.04471 29.7085 3.35372 29.7083 3.66575V27.3317C29.7083 27.9618 29.4581 28.5661 29.0127 29.0118C28.5672 29.4574 27.9631 29.708 27.333 29.7083H3.66575C3.03609 29.7077 2.43243 29.4571 1.98732 29.0118C1.5422 28.5664 1.29201 27.9626 1.29167 27.333V3.66575ZM12.5395 12.1262H16.3874V14.0585C16.9428 12.9477 18.3636 11.9479 20.4987 11.9479C24.592 11.9479 25.5621 14.1605 25.5621 18.2203V25.7403H21.4197V19.1451C21.4197 16.833 20.8643 15.5284 19.4538 15.5284C17.4969 15.5284 16.6832 16.935 16.6832 19.1451V25.7403H12.5395V12.1262ZM5.43533 25.5634H9.579V11.9479H5.43533V25.5634ZM10.1719 7.50717C10.1797 7.86195 10.1166 8.21473 9.98618 8.54478C9.85581 8.87484 9.66083 9.17553 9.41267 9.42921C9.16452 9.68289 8.86819 9.88444 8.54109 10.0221C8.21398 10.1597 7.86268 10.2305 7.50781 10.2305C7.15294 10.2305 6.80164 10.1597 6.47454 10.0221C6.14743 9.88444 5.85111 9.68289 5.60295 9.42921C5.3548 9.17553 5.15981 8.87484 5.02944 8.54478C4.89907 8.21473 4.83594 7.86195 4.84375 7.50717C4.85908 6.81077 5.1465 6.14806 5.64444 5.66097C6.14237 5.17388 6.81125 4.90112 7.50781 4.90112C8.20438 4.90112 8.87325 5.17388 9.37119 5.66097C9.86913 6.14806 10.1565 6.81077 10.1719 7.50717Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"/></g></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=moemyamyintzu@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email Moe" data-tooltip="Email me" style="--brand: #EA4335">
+                  <svg aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" width="31" height="24.8" viewBox="0 0 31 24.8" fill="none"><path d="M31 3.1C31 1.39258 29.6074 0 27.9 0H3.1C1.39258 0 0 1.39258 0 3.1V21.7C0 23.4074 1.39258 24.8 3.1 24.8H27.9C29.6074 24.8 31 23.4074 31 21.7V3.1ZM27.9 3.1L15.5 10.85L3.1 3.1H27.9ZM27.9 21.7H3.1V6.2L15.5 13.95L27.9 6.2V21.7Z" fill="currentColor"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.behance.net/moemyamyintzu" target="_blank" rel="noopener noreferrer" aria-label="Moe's Behance" data-tooltip="Behance" style="--brand: #1769FF">
+                  <svg aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" width="29" height="29" viewBox="0 0 29 29" fill="none"><path d="M27.84 0H1.16C0.518375 0 0 0.518375 0 1.16V27.84C0 28.4816 0.518375 29 1.16 29H27.84C28.4816 29 29 28.4816 29 27.84V1.16C29 0.518375 28.4816 0 27.84 0ZM17.6356 8.66012H22.6526V9.88175H17.6356V8.66012ZM14.5 18.734C14.2654 19.1795 13.9303 19.5642 13.5212 19.8577C13.0935 20.155 12.6186 20.3725 12.1147 20.4994C11.5876 20.6406 11.0438 20.7101 10.498 20.706H4.495V8.34112H10.3312C10.9221 8.34112 11.4586 8.3955 11.948 8.497C12.4338 8.5985 12.847 8.7725 13.195 9.00812C13.5394 9.24375 13.8112 9.55912 14.0034 9.95062C14.1919 10.3385 14.2898 10.8242 14.2898 11.4006C14.2898 12.0241 14.1484 12.5389 13.8656 12.9557C13.5792 13.3726 13.166 13.7097 12.6041 13.9744C13.369 14.1919 13.9309 14.5798 14.3006 15.1235C14.6776 15.6745 14.8625 16.3342 14.8625 17.11C14.8625 17.7407 14.7429 18.2809 14.5 18.734ZM24.6065 16.82H18.1395C18.1395 17.5232 18.3824 18.1975 18.7485 18.56C19.1182 18.9189 19.6475 19.1001 20.3399 19.1001C20.8401 19.1001 21.2642 18.9732 21.6267 18.7231C21.9856 18.473 22.2031 18.2084 22.2829 17.9329H24.4506C24.1026 19.0095 23.5734 19.778 22.8556 20.242C22.1451 20.706 21.2751 20.938 20.2638 20.938C19.5569 20.938 18.9225 20.822 18.3534 20.6009C17.806 20.387 17.313 20.0607 16.907 19.6402C16.5067 19.2084 16.1973 18.7005 15.9971 18.1467C15.776 17.5341 15.6673 16.8889 15.6745 16.24C15.6745 15.5694 15.7869 14.9459 16.0044 14.3659C16.4212 13.2385 17.2876 12.3359 18.3932 11.8682C18.9841 11.6217 19.6185 11.4985 20.2601 11.5057C21.0214 11.5057 21.6811 11.6508 22.2539 11.948C22.8053 12.2318 23.284 12.6387 23.6531 13.137C24.0192 13.6336 24.2766 14.1991 24.4398 14.8371C24.5956 15.4642 24.65 16.124 24.6065 16.82ZM20.184 13.3545C19.7925 13.3545 19.4626 13.4234 19.2089 13.5575C18.9551 13.6916 18.7449 13.8584 18.5854 14.0505C18.4335 14.236 18.3212 14.4507 18.2555 14.6812C18.1975 14.8734 18.1576 15.0691 18.1431 15.2685H22.1488C22.0907 14.6414 21.8733 14.1774 21.5833 13.8511C21.2787 13.5285 20.7894 13.3545 20.184 13.3545ZM11.1759 12.9884C11.4912 12.76 11.6435 12.383 11.6435 11.8646C11.6544 11.6181 11.6036 11.3752 11.4949 11.1541C11.397 10.9765 11.252 10.8279 11.0744 10.7227C10.8902 10.6111 10.6856 10.5371 10.4726 10.5052C10.2406 10.4617 10.005 10.44 9.773 10.4436H7.22462V13.3327H9.98325C10.4581 13.3364 10.8605 13.2204 11.1759 12.9884ZM11.6036 15.5984C11.2484 15.3265 10.7735 15.1924 10.1826 15.1924H7.21737V18.5999H10.1246C10.3965 18.5999 10.6466 18.5745 10.8895 18.5238C11.1324 18.473 11.3499 18.386 11.5347 18.2627C11.7196 18.1431 11.8682 17.98 11.9806 17.7698C12.0894 17.5595 12.1437 17.2912 12.1437 16.9686C12.1437 16.327 11.9625 15.8739 11.6036 15.5984Z" fill="currentColor"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://line.me/ti/p/4mI4GjxZOj" target="_blank" rel="noopener noreferrer" aria-label="Add Moe on LINE" data-tooltip="Add me on LINE" style="--brand: #06C755">
+                  <svg style="display: block;" aria-hidden="true" focusable="false" width="31" height="31" viewBox="0 0 24 24" fill="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" fill="currentColor"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/share/1GcZFzNuwt/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Moe's Facebook" data-tooltip="Facebook" style="--brand: #1877F2">
+                  <svg aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" width="31" height="31" viewBox="0 0 31 31" fill="none"><g clip-path="url(#clip0_0_4)"><path d="M31 15.5949C31 6.98081 24.0599 -0.0019375 15.5 -0.0019375C6.93625 1.16415e-10 -0.003875 6.98081 -0.003875 15.5969C-0.003875 23.3798 5.66525 29.8317 13.0743 31.0019V20.1035H9.14113V15.5969H13.0781V12.1578C13.0781 8.24988 15.3934 6.0915 18.9333 6.0915C20.6305 6.0915 22.4033 6.39569 22.4033 6.39569V10.2319H20.4484C18.5244 10.2319 17.9238 11.4351 17.9238 12.6693V15.5949H22.2212L21.5353 20.1016H17.9219V31C25.3309 29.8297 31 23.3779 31 15.5949Z" fill="currentColor"/></g><defs><clipPath id="clip0_0_4"><rect width="31" height="31" fill="white"/></clipPath></defs></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <img
+            class="hero__photo"
+            src="../Photos/work/work_profilephoto.png"
+            alt="Portrait of Moe Mya Myintzu"
+            width="319"
+            height="310"
+          />
+        </section>
+
+        <section class="case-studies" aria-label="Case studies">
+          <a class="case-card case-card--lumen" href="lumen.html">
+            <img class="case-card__icon" src="../lumenlogo.png" alt="" />
+            <p class="case-card__name">Lumen App</p>
+            <p class="case-card__label">UI/UX CASE STUDY | iOS or ANDROID</p>
+            <h2 class="case-card__title">Lumen Book Reading App</h2>
+            <p class="case-card__role">UX/UI Design</p>
+            <p class="case-card__description">Reading, listening, and community in one app.</p>
+            <span class="case-card__button">view case study</span>
+            <img
+              class="case-card__mockup"
+              src="../Photos/work/work_lumen.png"
+              alt="Phone screens from the Lumen book reading app"
+            />
+          </a>
+
+          <a class="case-card case-card--pawmatch" href="pawmatch.html">
+            <img class="case-card__icon" src="../pawmatchlogo.png" alt="" />
+            <p class="case-card__name">Paw Match App</p>
+            <p class="case-card__label">UI/UX CASE STUDY | iOS or ANDROID</p>
+            <h2 class="case-card__title">Paw Match Pet App</h2>
+            <p class="case-card__role">UX/UI Design</p>
+            <p class="case-card__description">Safe playdates and pet care in one app</p>
+            <span class="case-card__button">view case study</span>
+            <img
+              class="case-card__mockup"
+              src="../Photos/work/work_pawmatch.png"
+              alt="Phone screens from the Paw Match pet app"
+            />
+          </a>
+
+          <a class="case-card case-card--hrtech" href="hrtech.html">
+            <img class="case-card__icon" src="../HR-Techlogo.png" alt="" />
+            <p class="case-card__name">Sign-Up Redesign</p>
+            <p class="case-card__label">UX/UI DESIGN CHALLENGE | WEB</p>
+            <h2 class="case-card__title">Sign-Up &amp; Onboarding Redesign</h2>
+            <p class="case-card__role">UX/UI Design</p>
+            <p class="case-card__description">
+              Redesigning sign-up and onboarding for an HR-tech platform.
+            </p>
+            <span class="case-card__button">view case study</span>
+            <img
+              class="case-card__mockup"
+              src="../Photos/work/work_HR-Tech.png"
+              alt="Sign-up and onboarding screens from the HR-Tech redesign"
+            />
+          </a>
+        </section>
+      </main>
+      <div class="footer-spacer"></div>
+    </div>
+
+    <!-- SHARED FOOTER: copy this block to every page. -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <section class="footer__column footer__column--navigation">
+          <h2 class="footer__heading">✨ navigation</h2>
+          <ul class="footer__links">
+            <li><a class="footer__link--work" href="work.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="fun.html">Fun</a></li>
+          </ul>
+        </section>
+        <section class="footer__column footer__column--contact">
+          <h2 class="footer__heading">🌙 contact</h2>
+          <!-- TODO: Instagram still needs a real link or removing. -->
+          <ul class="footer__links">
+            <li><a href="https://www.linkedin.com/in/moe-mya-myintzu-12b960347" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=moemyamyintzu@gmail.com" target="_blank" rel="noopener noreferrer">Email</a></li>
+            <li><a href="https://www.behance.net/moemyamyintzu" target="_blank" rel="noopener noreferrer">Behance</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="https://www.facebook.com/share/1GcZFzNuwt/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          </ul>
+        </section>
+        <section class="footer__column footer__column--case-studies">
+          <h2 class="footer__heading">💫 case studies</h2>
+          <ul class="footer__links">
+            <li><a href="lumen.html">Lumen</a></li>
+            <li><a href="pawmatch.html">Paw Match</a></li>
+            <li><a href="hrtech.html">HR-Tech</a></li>
+          </ul>
+        </section>
+        <p class="footer__copyright">
+          <img src="../Photos/icons/copyright.svg" alt="Copyright" width="12" height="12" />
+          2025- Moe Mya Myintzu
+        </p>
+        <p class="footer__tagline">made with love and iced strawberry matcha lattes <span class="footer__emoji">🫶🏼🧊🍓🍵</span></p>
+      </div>
+    </footer>
+    <!-- END SHARED FOOTER -->
+    <script src="../cursor.js?v=3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@14.6.0/dist/motion.js" integrity="sha384-wyFtoWIFus6Butv1mjUTfcosTs0hTxLly4xsBL9KKBbd+WuuXov75vD9yhy5UZv9" crossorigin="anonymous"></script>
+    <script src="../navbar-motion.js?v=2"></script>
+    <script src="../resume-button.js?v=1"></script>
+    <script src="../theme.js?v=3"></script>
+    <script src="../mobile-menu.js?v=2"></script>
+    <script src="../animations.js?v=7"></script>
+    <script src="../social-icons.js?v=1"></script>
+  </body>
+</html>

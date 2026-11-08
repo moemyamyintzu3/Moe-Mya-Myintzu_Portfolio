@@ -1,0 +1,5 @@
+# macOS
+.DS_Store
+
+# Test browser logs
+.playwright-mcp/

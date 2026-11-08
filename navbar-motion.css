@@ -1,0 +1,63 @@
+/* Sliding pill behind the navbar links. navbar-motion.js adds .has-nav-pill to
+   the links container only where the pill runs, so reduced motion, touch
+   devices, and a failed Motion download all keep the normal hover. */
+
+/* The pill replaces the hover underline. */
+.has-nav-pill .navbar__link::after {
+  display: none;
+}
+
+/* Sits 8px above and below the 24px link text. */
+.nav-pill {
+  position: absolute;
+  top: -8px;
+  left: 0;
+  z-index: -1;
+  width: 0;
+  height: 40px;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.nav-pill__body {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Fading as one group keeps the overlapping pieces from showing darker seams,
+   and gives the same color as rgba(47, 111, 224, 0.10). */
+.nav-pill__fill {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+}
+
+/* Fixed round ends with a stretching middle, so scaleX never squashes them. */
+.nav-pill__cap,
+.nav-pill__middle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  background: #2f6fe0;
+  will-change: transform;
+}
+
+.nav-pill__cap {
+  width: 20px;
+}
+
+.nav-pill__cap--start {
+  border-radius: 20px 0 0 20px;
+}
+
+.nav-pill__cap--end {
+  border-radius: 0 20px 20px 0;
+}
+
+.nav-pill__middle {
+  width: 1px;
+  transform-origin: left center;
+}

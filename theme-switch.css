@@ -1,0 +1,213 @@
+/* Dark mode switch. It sits beside the navbar links without taking any space from
+   them, so the links stay where they are. theme.js adds the button itself. */
+
+.theme-switch {
+  position: absolute;
+  top: 25.5px; /* Centered in the 83px navbar. */
+  right: max(16px, calc((100% - 1440px) / 2 + 136px));
+  overflow: hidden;
+  width: 60px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #dce7fb;
+}
+
+.theme-switch:focus-visible {
+  outline: 3px solid #2f6fe0;
+  outline-offset: 3px;
+}
+
+[data-theme="dark"] .theme-switch:focus-visible {
+  outline-color: #6b95f2;
+}
+
+.theme-switch__night {
+  position: absolute;
+  inset: 0;
+  background: #232136;
+  opacity: 0;
+}
+
+.theme-switch__cloud,
+.theme-switch__star {
+  position: absolute;
+  display: block;
+}
+
+.theme-switch__cloud--1 {
+  top: 6px;
+  left: 37px;
+  width: 14px;
+  height: 10px;
+}
+
+.theme-switch__cloud--2 {
+  top: 16px;
+  left: 44px;
+  width: 11px;
+  height: 8px;
+}
+
+.theme-switch__cloud--3 {
+  top: 19px;
+  left: 33px;
+  width: 8px;
+  height: 6px;
+}
+
+.theme-switch__star {
+  opacity: 0;
+}
+
+.theme-switch__star--1 {
+  top: 7px;
+  left: 8px;
+  width: 7px;
+  height: 7px;
+}
+
+.theme-switch__star--2 {
+  top: 15px;
+  left: 18px;
+  width: 6px;
+  height: 6px;
+}
+
+.theme-switch__star--3 {
+  top: 21px;
+  left: 7px;
+  width: 5px;
+  height: 5px;
+}
+
+.theme-switch__knob {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffc83d;
+  box-shadow: 0 1px 4px rgba(20, 20, 19, 0.35);
+}
+
+.theme-switch__spin,
+.theme-switch__knob-night,
+.theme-switch__sun,
+.theme-switch__moon-turn,
+.theme-switch__moon {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.theme-switch__spin {
+  border-radius: 50%;
+}
+
+.theme-switch__knob-night {
+  border-radius: 50%;
+  background: #e8e6f5;
+  opacity: 0;
+}
+
+.theme-switch__rays {
+  stroke: #a86a00;
+  stroke-linecap: round;
+  stroke-width: 1.6;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.theme-switch__core {
+  fill: #f59e0b;
+}
+
+/* The knob finishes upside down after its 180° turn, so the moon starts flipped. */
+.theme-switch__moon-turn {
+  transform: rotate(180deg);
+}
+
+.theme-switch__moon {
+  fill: #7a75ad;
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.theme-switch__crater {
+  fill: #e8e6f5;
+}
+
+/* Resting positions in dark mode. Motion takes over once it has loaded. */
+[data-theme="dark"] .theme-switch__night,
+[data-theme="dark"] .theme-switch__knob-night,
+[data-theme="dark"] .theme-switch__star,
+[data-theme="dark"] .theme-switch__moon {
+  opacity: 1;
+}
+
+[data-theme="dark"] .theme-switch__moon {
+  transform: none;
+}
+
+[data-theme="dark"] .theme-switch__knob {
+  transform: translateX(28px);
+}
+
+[data-theme="dark"] .theme-switch__spin {
+  transform: rotate(180deg);
+}
+
+[data-theme="dark"] .theme-switch__rays,
+[data-theme="dark"] .theme-switch__core,
+[data-theme="dark"] .theme-switch__cloud {
+  opacity: 0;
+}
+
+[data-theme="dark"] .theme-switch__star path {
+  animation: theme-twinkle 2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+[data-theme="dark"] .theme-switch__star--2 path {
+  animation-delay: 0.5s;
+}
+
+[data-theme="dark"] .theme-switch__star--3 path {
+  animation-delay: 1s;
+}
+
+@keyframes theme-twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.35;
+    transform: scale(0.75);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="dark"] .theme-switch__star path {
+    animation: none;
+  }
+
+  .theme-switch__spin,
+  [data-theme="dark"] .theme-switch__spin {
+    transform: none;
+  }
+
+  /* With no turn, the moon doesn't need flipping. */
+  .theme-switch__moon-turn {
+    transform: none;
+  }
+}

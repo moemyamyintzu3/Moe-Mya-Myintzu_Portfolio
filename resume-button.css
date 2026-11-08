@@ -1,0 +1,125 @@
+/* Resume button in the navbar. It is a 40px pill, but its outer box takes the
+   same 24px height as the links beside it, so the navbar height doesn't change.
+   resume-button.js adds the hover animation. */
+
+.navbar__resume {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 8px;
+  height: 40px;
+  margin: -8px 0; /* 40px pill in a 24px row, centered on the link text. */
+  padding: 0 22px 0 18px;
+  border-radius: 999px;
+  background-color: #4f6fe6;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  white-space: nowrap;
+  transition: background-color 0.25s ease;
+}
+
+.navbar__resume:focus-visible {
+  outline: 3px solid #2f6fe0;
+  outline-offset: 3px;
+}
+
+/* Only the color changes here, so this still works with reduced motion and
+   without the script. Touch screens skip it, so a tap doesn't leave it dark. */
+@media (hover: hover) {
+  .navbar__resume:hover {
+    background-color: #3f5ed6;
+  }
+}
+
+.navbar__resume:focus-visible {
+  background-color: #3f5ed6;
+}
+
+.navbar__resume-icon,
+.navbar__resume-label {
+  position: relative; /* Above the shine. */
+}
+
+/* The arrow and the tray are separate drawings stacked in one 18px square,
+   so each can move on its own. */
+.navbar__resume-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.navbar__resume-arrow,
+.navbar__resume-tray {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+/* Squashes toward the bottom of the tray. */
+.navbar__resume-tray {
+  transform-origin: 50% 92%;
+}
+
+/* Added by resume-button.js. */
+.navbar__resume-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 6px 16px rgba(79, 111, 230, 0.35);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.navbar__resume-shine-clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.navbar__resume-shine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.25) 50%, transparent 80%);
+  transform: translateX(-100%);
+}
+
+/* Dark mode */
+[data-theme="dark"] .navbar__resume {
+  background-color: #6b95f2;
+  color: #141413;
+}
+
+@media (hover: hover) {
+  [data-theme="dark"] .navbar__resume:hover {
+    background-color: #5a84e8;
+  }
+}
+
+[data-theme="dark"] .navbar__resume:focus-visible {
+  background-color: #5a84e8;
+  outline-color: #6b95f2;
+}
+
+[data-theme="dark"] .navbar__resume-glow {
+  box-shadow: 0 6px 16px rgba(107, 149, 242, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__resume {
+    transition: none;
+  }
+}

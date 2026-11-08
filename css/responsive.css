@@ -1,0 +1,1402 @@
+/* Layouts for smaller screens. The desktop design (1200px and wider) is not
+   touched: every rule here sits inside a max-width or touch media query, and only
+   applies to pages whose <body> has the is-responsive class.
+
+   Breakpoints
+   - 1199px  small laptop and iPad landscape: the desktop layout, made fluid
+   - 1023px  tablet portrait: menu button, stacked cards, 2-column grids
+   - 767px   phone: one column
+   - 359px   small phone */
+
+/* The single-column copy of a case study (built by case-study-flow.js) only
+   shows below 1200px. */
+.lumen-flow {
+  display: none;
+}
+
+/* =====================================================================
+   1199px and below: small laptop / iPad landscape
+   ===================================================================== */
+
+@media (max-width: 1199px) {
+  .is-responsive {
+    --gutter: 24px;
+    --gutter-left: max(var(--gutter), env(safe-area-inset-left));
+    --gutter-right: max(var(--gutter), env(safe-area-inset-right));
+    /* Width of the content column, with the side gutters. */
+    --content: calc(100% - var(--gutter-left) - var(--gutter-right));
+
+    min-width: 0;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  .is-responsive .page {
+    width: auto;
+    /* Safety net: a phone zooms the whole page out if anything is wider than
+       the screen, so nothing is allowed to stick out sideways. */
+    overflow-x: clip;
+  }
+
+  .is-responsive img {
+    max-width: 100%;
+  }
+
+  /* ---------- Navbar ---------- */
+
+  .is-responsive .navbar__logo {
+    left: var(--gutter-left);
+  }
+
+  .is-responsive .navbar__links {
+    right: calc(var(--gutter-right) + 60px + 24px);
+  }
+
+  .is-responsive .theme-switch {
+    right: var(--gutter-right);
+  }
+
+  /* ---------- Work: hero ---------- */
+
+  .is-responsive .hero {
+    width: min(var(--hero-width), var(--content));
+    height: auto;
+    min-height: var(--hero-height);
+    margin: 13px auto 0;
+    padding: 0 32px 40px;
+  }
+
+  .is-responsive .hero__copy {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .is-responsive .hero__photo {
+    margin-left: auto;
+  }
+
+  /* ---------- Work: case study cards ---------- */
+
+  .is-responsive .case-studies {
+    margin: 26px var(--gutter-right) 0 var(--gutter-left);
+  }
+
+  /* Grows when a title wraps to two lines, instead of crowding the button. */
+  .is-responsive .case-card {
+    width: auto;
+    max-width: var(--card-width);
+    height: auto;
+    min-height: var(--card-height);
+    margin-inline: auto;
+    padding-bottom: 48px;
+  }
+
+  /* The phones are anchored to the right edge, so they stay in the card as it
+     narrows. The right offsets match the desktop positions. */
+  .is-responsive .case-card--lumen .case-card__mockup {
+    right: 69px;
+    left: auto;
+  }
+
+  .is-responsive .case-card--pawmatch .case-card__mockup {
+    right: 57px;
+    left: auto;
+  }
+
+  .is-responsive .case-card--hrtech .case-card__mockup {
+    right: 44px;
+    left: auto;
+  }
+
+  .is-responsive .case-card__title {
+    max-width: 400px;
+    white-space: normal;
+  }
+
+  /* ---------- Footer ---------- */
+
+  .is-responsive .footer {
+    height: auto;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .is-responsive .footer__inner {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-around;
+    row-gap: 40px;
+    width: auto;
+    max-width: 1000px;
+    padding: 49px var(--gutter-right) 24px var(--gutter-left);
+  }
+
+  .is-responsive .footer__column,
+  .is-responsive .footer__copyright,
+  .is-responsive .footer__tagline {
+    position: static;
+  }
+
+  .is-responsive .footer__copyright {
+    grid-column: 1 / 2;
+  }
+
+  .is-responsive .footer__tagline {
+    grid-column: 2 / -1;
+    justify-self: end;
+    white-space: normal;
+  }
+
+  /* ---------- About ---------- */
+
+  .is-responsive .about-title,
+  .is-responsive .fun-title {
+    height: auto;
+    margin-inline: auto;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .is-responsive .about-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 36px;
+    align-items: start;
+    width: min(1005px, var(--content));
+    height: auto;
+    margin: 49px auto 0;
+    padding: 68px 47px 56px;
+  }
+
+  .is-responsive .about-intro__heading,
+  .is-responsive .about-intro__bio,
+  .is-responsive .about-intro__photo {
+    position: static;
+  }
+
+  .is-responsive .about-intro__heading {
+    grid-column: 1 / -1;
+    width: auto;
+    height: auto;
+    margin-bottom: 27px;
+    white-space: normal;
+  }
+
+  .is-responsive .about-intro__bio {
+    width: auto;
+    max-width: 65ch;
+  }
+
+  .is-responsive .about-intro__photo {
+    width: clamp(240px, 34vw, 392px);
+    height: auto;
+  }
+
+  .is-responsive .section-pill {
+    margin-inline: auto;
+  }
+
+  .is-responsive .experience {
+    width: min(998px, var(--content));
+    margin-inline: auto;
+  }
+
+  /* The dividers become borders, so they follow the rows as they grow. */
+  .is-responsive .experience::before,
+  .is-responsive .experience::after {
+    display: none;
+  }
+
+  .is-responsive .experience__item {
+    gap: 24px;
+    height: auto;
+    padding: 0 0 20px;
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .is-responsive .experience__item + .experience__item {
+    padding-top: 20px;
+  }
+
+  /* All the pills flow together and wrap. */
+  .is-responsive .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 16px;
+    width: min(996px, var(--content));
+    height: auto;
+    margin-inline: auto;
+    padding: 39px 42px;
+  }
+
+  .is-responsive .skills__row {
+    display: contents;
+  }
+
+  .is-responsive .skill {
+    width: auto !important; /* Overrides the Figma widths written on each pill. */
+    margin: 0 !important;
+    padding: 0 16px;
+  }
+
+  .is-responsive .skills__more {
+    align-self: center;
+    margin: 0;
+  }
+
+  .is-responsive .tools {
+    display: grid;
+    grid-template-columns: repeat(3, 197px);
+    gap: 25px 64px;
+    justify-content: center;
+    margin-inline: var(--gutter-left) var(--gutter-right);
+  }
+
+  .is-responsive .tools__row {
+    display: contents;
+  }
+
+  .is-responsive .tools__row--second .tool:nth-child(2) {
+    margin: 0;
+  }
+
+  /* The icon and name are centered, so the tile can be any width. */
+  .is-responsive .tool::before,
+  .is-responsive .tool__icon,
+  .is-responsive .tool__name {
+    left: 50% !important; /* Overrides the Figma offsets written on each name. */
+    translate: -50% 0;
+  }
+
+  .is-responsive .tool__name {
+    top: 118px !important;
+  }
+
+  /* A smaller fan, so all four certificates fit. */
+  .is-responsive .cert-deck {
+    height: 360px;
+  }
+
+  .is-responsive .cert-card {
+    left: calc(50% - 180px);
+    width: 360px;
+    height: 255px;
+  }
+
+  .is-responsive .cert-card:nth-child(1) {
+    --fan-x: -300px;
+  }
+
+  .is-responsive .cert-card:nth-child(2) {
+    --fan-x: -100px;
+  }
+
+  .is-responsive .cert-card:nth-child(3) {
+    --fan-x: 100px;
+  }
+
+  .is-responsive .cert-card:nth-child(4) {
+    --fan-x: 300px;
+  }
+
+  .is-responsive .about-closing {
+    width: auto;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+
+  /* ---------- Fun ---------- */
+
+  .is-responsive .fun-matcha,
+  .is-responsive .fun-curious,
+  .is-responsive .fun-row,
+  .is-responsive .fun-friends__text {
+    width: min(993px, var(--content));
+    margin-inline: auto;
+  }
+
+  .is-responsive .fun-matcha__main {
+    flex: 610 1 0;
+    width: auto;
+    min-width: 0;
+  }
+
+  .is-responsive .fun-matcha__side {
+    flex: 342 1 0;
+    min-width: 0;
+  }
+
+  .is-responsive .fun-matcha__text {
+    width: auto;
+    max-width: 430px;
+  }
+
+  .is-responsive .fun-photo {
+    width: 100%;
+    height: auto;
+  }
+
+  .is-responsive .fun-curious > .fun-photo {
+    flex: 481 1 0;
+    min-width: 0;
+  }
+
+  .is-responsive .fun-curious__text {
+    flex: 455 1 0;
+    align-self: center;
+    width: auto;
+    margin-top: 0;
+  }
+
+  .is-responsive .fun-row > .fun-photo {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .is-responsive .fun-snippets {
+    width: min(407px, var(--content));
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  /* ---------- Case studies: the single-column copy ---------- */
+
+  .is-responsive .lumen {
+    height: auto;
+  }
+
+  .is-responsive .lumen > section,
+  .is-responsive .lumen > .lumen-contents {
+    display: none;
+  }
+
+  .is-responsive .lumen-flow {
+    display: block;
+    width: min(880px, var(--content));
+    margin: 0 auto;
+    padding: 23px 0 80px;
+  }
+
+  .flow-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 56px;
+  }
+
+  .flow-section--intro {
+    align-items: center;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .flow-section--intro .lumen-logo-purple {
+    margin-block: 8px;
+  }
+
+  .flow-section--panel {
+    padding: 48px 40px;
+    border-radius: 30px;
+    background: var(--color-lumen-panel);
+  }
+
+  .lumen-flow img,
+  .lumen-flow table {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Big images use the full column, keeping their shape. */
+  .lumen-flow img:not(.flow-pair > img) {
+    align-self: center;
+  }
+
+  .lumen-flow .lumen-title,
+  .lumen-flow .lumen-heading,
+  .lumen-flow .lumen-subheading,
+  .lumen-flow .lumen-case,
+  .lumen-flow .lumen-caption,
+  .lumen-flow .lumen-feature,
+  .lumen-flow .lumen-label,
+  .lumen-flow .lumen-flow-label {
+    white-space: normal;
+  }
+
+  .lumen-flow .lumen-title {
+    font-size: clamp(28px, 6vw, 40px);
+    line-height: 1.25;
+  }
+
+  .lumen-flow .lumen-heading {
+    margin-top: 16px;
+    font-size: clamp(28px, 6vw, 40px);
+    line-height: 1.2;
+  }
+
+  .lumen-flow .flow-section > .lumen-heading:first-child,
+  .lumen-flow .flow-section--panel > .lumen-heading:first-child {
+    margin-top: 0;
+  }
+
+  .lumen-flow .lumen-heading--small {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+
+  .lumen-flow .lumen-subheading {
+    font-size: clamp(20px, 4.5vw, 24px);
+    line-height: 1.25;
+  }
+
+  .lumen-flow p,
+  .lumen-flow .lumen-stack {
+    max-width: 65ch;
+  }
+
+  .lumen-flow .lumen-body,
+  .lumen-flow .lumen-value,
+  .lumen-flow .lumen-feature,
+  .lumen-flow .lumen-takeaway {
+    line-height: 1.45;
+  }
+
+  .lumen-flow .lumen-caption {
+    align-self: flex-end;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .lumen-flow .lumen-prototype {
+    position: relative;
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+
+  /* An icon, number, ring, or label beside its text. */
+  .flow-pair {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .flow-pair > :first-child {
+    flex: none;
+  }
+
+  .flow-pair > :last-child {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .flow-pair--icon:has(.lumen-ring) {
+    gap: 8px;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .flow-pair--label {
+    gap: 24px;
+  }
+
+  .flow-pair--label > .lumen-label {
+    width: 110px;
+    padding-top: 2px;
+  }
+
+  /* Dark mode tiles behind the numbers and bulbs: no offset outside the canvas. */
+  [data-theme="dark"] .lumen-flow .illo-color {
+    margin: 0;
+  }
+
+  /* Two columns read left then right, like the desktop. */
+  .flow-cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 32px;
+    align-items: start;
+  }
+
+  .flow-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* HR-Tech audit table */
+  .lumen-flow .lumen-audit {
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .lumen-flow .lumen-audit th,
+  .lumen-flow .lumen-audit td {
+    width: auto;
+    padding: 16px 16px 16px 0;
+  }
+
+  .lumen-flow .lumen-audit th {
+    height: auto;
+    padding-top: 0;
+  }
+}
+
+/* =====================================================================
+   1023px and below: tablet portrait
+   ===================================================================== */
+
+@media (max-width: 1023px) {
+  .is-responsive {
+    --navbar-height: 64px;
+  }
+
+  /* ---------- Navbar: logo left, switch and menu button right ---------- */
+
+  .is-responsive .navbar {
+    height: calc(var(--navbar-height) + env(safe-area-inset-top));
+    padding-top: env(safe-area-inset-top);
+    background: color-mix(in srgb, var(--color-page) 78%, transparent);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    backdrop-filter: saturate(180%) blur(16px);
+  }
+
+  .is-responsive .navbar__logo {
+    top: calc(env(safe-area-inset-top) + 10px);
+  }
+
+  .is-responsive .navbar__logo img {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* The links move into the full-screen menu. Without the menu script they stay
+     here, so every page can still be reached. */
+  .is-responsive.has-mobile-menu .navbar__links {
+    display: none;
+  }
+
+  .is-responsive .theme-switch {
+    top: calc(env(safe-area-inset-top) + 16px);
+    right: calc(var(--gutter-right) + 44px + 8px);
+  }
+
+  /* ---------- Work: hero, text left and a smaller photo right ---------- */
+
+  .is-responsive .hero {
+    align-items: center;
+    gap: 32px;
+    min-height: 0;
+    padding: 40px;
+  }
+
+  .is-responsive .hero__copy {
+    margin-top: 0;
+  }
+
+  .is-responsive .hero__title {
+    height: auto;
+    font-size: clamp(28px, 6vw, 40px);
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  .is-responsive .hero__intro {
+    width: auto;
+    max-width: 65ch;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .is-responsive .hero__photo {
+    width: 240px;
+    height: auto;
+    margin-top: 0;
+    border-radius: 32px;
+    aspect-ratio: 319 / 310;
+  }
+
+  /* ---------- Work: cards stack, text on top and phones below ---------- */
+
+  .is-responsive .case-card {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 40px;
+  }
+
+  .is-responsive .case-card + .case-card {
+    margin-top: 40px;
+  }
+
+  /* The icon sits beside the name, as on desktop. */
+  .is-responsive .case-card__icon {
+    top: 22px;
+    left: 34px;
+    width: 72px;
+  }
+
+  .is-responsive .case-card--lumen .case-card__icon {
+    top: 26px;
+    left: 38px;
+    width: 66px;
+  }
+
+  .is-responsive .case-card__name {
+    margin: 0 0 0 64px;
+    min-height: 28px;
+  }
+
+  .is-responsive .case-card__label {
+    margin-top: 32px;
+  }
+
+  .is-responsive .case-card__title {
+    max-width: none;
+    font-size: clamp(24px, 5vw, 32px);
+    line-height: 1.2;
+  }
+
+  .is-responsive .case-card__role {
+    margin-top: 24px;
+  }
+
+  .is-responsive .case-card__mockup,
+  .is-responsive .case-card--lumen .case-card__mockup,
+  .is-responsive .case-card--pawmatch .case-card__mockup,
+  .is-responsive .case-card--hrtech .case-card__mockup {
+    position: static;
+    align-self: center;
+    order: 1;
+    width: 100%;
+    max-width: 420px;
+    margin-top: 32px;
+  }
+
+  /* ---------- Footer: three columns, smaller gap ---------- */
+
+  .is-responsive .footer__inner {
+    justify-content: space-between;
+    column-gap: 32px;
+  }
+
+  /* ---------- About ---------- */
+
+  .is-responsive .about-intro {
+    padding: 40px;
+  }
+
+  /* Tools: tiles fill a 3-column grid. */
+  .is-responsive .tools {
+    grid-template-columns: repeat(3, minmax(0, 197px));
+    column-gap: 24px;
+  }
+
+  /* Certificates: a 2-column grid with each title underneath. */
+  .is-responsive .cert-deck {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 24px;
+    width: min(880px, var(--content));
+    height: auto;
+    margin: 24px auto 0;
+  }
+
+  .is-responsive .cert-card {
+    position: static;
+    width: auto;
+    height: auto;
+    transform: none;
+  }
+
+  .is-responsive .cert-card__face {
+    height: auto;
+    aspect-ratio: 1888 / 1436;
+  }
+
+  .is-responsive .cert-card::after,
+  .is-responsive .cert-card.is-active::after {
+    position: static;
+    display: block;
+    margin-top: 12px;
+    color: var(--color-text);
+    content: attr(data-title) "\A" attr(data-meta);
+    font-family: var(--font-ui);
+    font-size: 16px;
+    line-height: 1.45;
+    text-align: center;
+    white-space: pre-line;
+  }
+
+  .is-responsive .cert-caption {
+    display: none;
+  }
+
+  /* ---------- Fun ---------- */
+
+  .is-responsive .fun-curious {
+    gap: 32px;
+  }
+
+  /* ---------- Case studies ---------- */
+
+  .flow-section--panel {
+    padding: 40px 32px;
+  }
+}
+
+/* =====================================================================
+   767px and below: phone
+   ===================================================================== */
+
+@media (max-width: 767px) {
+  .is-responsive {
+    --gutter: 20px;
+  }
+
+  .is-responsive .navbar__logo {
+    left: var(--gutter-left);
+  }
+
+  /* ---------- Work: hero stacks, photo on top ---------- */
+
+  .is-responsive .hero {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 12px;
+    padding: 28px 20px;
+  }
+
+  .is-responsive .hero__photo {
+    order: -1;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .is-responsive .hero__copy {
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .is-responsive .hero__intro {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  /* 44px tap areas around the 31px icons. The negative margin keeps the first
+     icon lined up with the text above it. */
+  .is-responsive .hero__social {
+    gap: 4px;
+    height: auto;
+    margin: 20px 0 0 -7px;
+  }
+
+  .is-responsive .hero__social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+  }
+
+  /* ---------- Work: cards ---------- */
+
+  .is-responsive .case-studies {
+    margin-top: 24px;
+  }
+
+  .is-responsive .case-card {
+    padding: 28px 20px;
+  }
+
+  .is-responsive .case-card__icon {
+    top: 10px;
+    left: 14px;
+  }
+
+  .is-responsive .case-card--lumen .case-card__icon {
+    top: 14px;
+    left: 18px;
+  }
+
+  .is-responsive .case-card__label {
+    margin-top: 28px;
+    font-size: 14px;
+  }
+
+  .is-responsive .case-card__description {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  /* ---------- Footer: columns stack, then the bottom row centered ---------- */
+
+  .is-responsive .footer__inner {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+    padding-top: 40px;
+  }
+
+  .is-responsive .footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    margin-top: 4px;
+  }
+
+  .is-responsive .footer__links li {
+    height: auto;
+    line-height: 44px; /* Tap height. */
+  }
+
+  .is-responsive .footer__link--work {
+    margin-left: 0;
+  }
+
+  .is-responsive .footer__copyright,
+  .is-responsive .footer__tagline {
+    grid-column: 1;
+    justify-self: center;
+    line-height: 22px;
+    text-align: center;
+  }
+
+  .is-responsive .footer__copyright {
+    margin-top: 8px;
+  }
+
+  .is-responsive .footer__tagline {
+    margin-top: -24px;
+  }
+
+  /* ---------- About ---------- */
+
+  .is-responsive .about-title,
+  .is-responsive .fun-title {
+    font-size: clamp(28px, 8vw, 40px);
+    line-height: 1.25;
+  }
+
+  .is-responsive .about-intro {
+    grid-template-columns: 1fr;
+    margin-top: 28px;
+    padding: 28px 20px;
+  }
+
+  .is-responsive .about-intro__photo {
+    order: -1;
+    justify-self: center;
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 24px;
+    border-radius: 32px;
+  }
+
+  .is-responsive .about-intro__heading {
+    margin-bottom: 16px;
+    font-size: clamp(24px, 6.5vw, 32px);
+    line-height: 1.3;
+  }
+
+  .is-responsive .about-intro__bio {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .is-responsive .about-intro__bio p + p {
+    margin-top: 16px;
+  }
+
+  .is-responsive .experience__item {
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+  }
+
+  .is-responsive .experience__role,
+  .is-responsive .experience__place {
+    font-size: 20px;
+  }
+
+  .is-responsive .experience__place,
+  .is-responsive .experience__details--university .experience__place,
+  .is-responsive .experience__details {
+    margin-right: 0;
+  }
+
+  .is-responsive .experience__dates {
+    margin-top: 2px;
+  }
+
+  .is-responsive .skills {
+    gap: 10px;
+    padding: 24px 20px;
+    font-size: 16px;
+  }
+
+  .is-responsive .skill {
+    padding: 0 12px;
+  }
+
+  .is-responsive .tools {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .is-responsive .tool {
+    width: auto;
+  }
+
+  /* Certificates: a swipeable row. certificates.js adds the dots. */
+  .is-responsive .cert-deck {
+    display: flex;
+    gap: 16px;
+    width: auto;
+    margin: 20px 0 0;
+    padding: 4px 7.5% 8px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 7.5%;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .is-responsive .cert-deck::-webkit-scrollbar {
+    display: none;
+  }
+
+  .is-responsive .cert-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+
+  /* 8px dots inside 28px tap areas. */
+  .cert-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  .cert-dots__dot {
+    position: relative;
+    width: 28px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .cert-dots__dot::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    border-radius: 50%;
+    background: var(--color-divider);
+    content: "";
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .cert-dots__dot[aria-current="true"]::before {
+    background: var(--color-link-active);
+    transform: scale(1.25);
+  }
+
+  .is-responsive .about-closing {
+    font-size: clamp(24px, 6.5vw, 32px);
+    line-height: 1.3;
+  }
+
+  /* ---------- Fun ---------- */
+
+  .is-responsive .fun-matcha,
+  .is-responsive .fun-curious {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .is-responsive .fun-matcha__main,
+  .is-responsive .fun-matcha__side,
+  .is-responsive .fun-curious > .fun-photo,
+  .is-responsive .fun-curious__text {
+    flex: none;
+  }
+
+  .is-responsive .fun-matcha__text {
+    margin-left: 0;
+  }
+
+  .is-responsive .fun-photo--large {
+    margin-top: 16px;
+  }
+
+  .is-responsive .fun-matcha__side {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .is-responsive .fun-matcha__side > .fun-photo {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .is-responsive .fun-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .is-responsive .fun-curious > .fun-photo {
+    order: 1;
+  }
+
+  /* Three photos: two side by side, the third full width below. */
+  .is-responsive .fun-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .is-responsive .fun-row > .fun-photo:nth-child(3) {
+    grid-column: 1 / -1;
+    aspect-ratio: 2 / 1;
+  }
+
+  .is-responsive .fun-row--closing > .fun-photo:nth-child(3) {
+    aspect-ratio: auto;
+  }
+
+  .is-responsive .fun-row--travel,
+  .is-responsive .fun-row--friends,
+  .is-responsive .fun-friends__text,
+  .is-responsive .fun-snippets {
+    margin-top: 28px;
+  }
+
+  .is-responsive .fun-photo,
+  .is-responsive .fun-photo--large,
+  .is-responsive .fun-photo--rounder {
+    border-radius: 24px;
+  }
+
+  .is-responsive .fun-thanks {
+    margin-top: 48px;
+    font-size: clamp(24px, 6.5vw, 32px);
+    line-height: 1.3;
+  }
+
+  /* ---------- Case studies ---------- */
+
+  .is-responsive .lumen-flow {
+    padding-bottom: 56px;
+  }
+
+  .flow-section {
+    margin-top: 40px;
+  }
+
+  .flow-section--panel {
+    margin-inline: -8px;
+    padding: 28px 20px;
+    border-radius: 24px;
+  }
+
+  .flow-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-pair--label {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .flow-pair--label > .lumen-label {
+    width: auto;
+  }
+
+  .lumen-flow .lumen-body--relaxed {
+    font-size: 16px;
+  }
+
+  /* The audit table becomes one card per row, each cell with its column name. */
+  .lumen-flow .lumen-audit,
+  .lumen-flow .lumen-audit tbody,
+  .lumen-flow .lumen-audit tr,
+  .lumen-flow .lumen-audit td {
+    display: block;
+  }
+
+  .lumen-flow .lumen-audit thead {
+    display: none;
+  }
+
+  .lumen-flow .lumen-audit {
+    font-size: 16px;
+  }
+
+  .lumen-flow .lumen-audit tr {
+    padding: 16px 0;
+    border-top: 1px solid var(--color-divider);
+  }
+
+  .lumen-flow .lumen-audit td {
+    padding: 0;
+    border: 0;
+  }
+
+  .lumen-flow .lumen-audit td + td {
+    margin-top: 10px;
+  }
+
+  .lumen-flow .lumen-audit td::before {
+    display: block;
+    color: var(--color-lumen-label);
+    content: attr(data-label);
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+}
+
+/* Buttons go full width on narrow phones. */
+@media (max-width: 399px) {
+  .is-responsive .case-card__button {
+    justify-content: center;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .is-responsive .case-card__button:hover,
+  .is-responsive .case-card:focus-visible .case-card__button {
+    padding-left: 0;
+  }
+
+  .lumen-flow .lumen-prototype {
+    align-self: stretch;
+    justify-content: center;
+    width: auto;
+    padding-left: 0;
+  }
+}
+
+/* =====================================================================
+   359px and below: small phone
+   ===================================================================== */
+
+@media (max-width: 359px) {
+  .is-responsive {
+    --gutter: 16px;
+  }
+
+  .is-responsive .hero,
+  .is-responsive .case-card,
+  .is-responsive .about-intro {
+    padding-inline: 16px;
+  }
+
+  .is-responsive .theme-switch {
+    right: calc(var(--gutter-right) + 44px + 4px);
+  }
+}
+
+/* =====================================================================
+   Menu button and full-screen menu (added by mobile-menu.js)
+   ===================================================================== */
+
+.menu-toggle,
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .is-responsive .menu-toggle {
+    position: absolute;
+    top: calc(env(safe-area-inset-top) + 10px);
+    right: calc(var(--gutter-right) - 10px); /* The lines sit 10px inside the button. */
+    display: block;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--color-text);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .is-responsive .menu-toggle:focus-visible {
+    outline: 3px solid var(--color-link-active);
+    outline-offset: 0;
+  }
+
+  /* Three lines that turn into an ✕. */
+  .menu-toggle__line {
+    position: absolute;
+    left: 11px;
+    width: 22px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition:
+      transform 0.3s cubic-bezier(0.65, 0, 0.35, 1),
+      opacity 0.2s ease;
+  }
+
+  .menu-toggle__line:nth-child(1) {
+    top: 14px;
+  }
+
+  .menu-toggle__line:nth-child(2) {
+    top: 21px;
+  }
+
+  .menu-toggle__line:nth-child(3) {
+    top: 28px;
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-toggle__line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-toggle__line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0.2);
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-toggle__line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Sits under the navbar, so the logo, switch, and ✕ stay on top of it. */
+  .is-responsive .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    padding:
+      calc(var(--navbar-height) + env(safe-area-inset-top) + 32px)
+      var(--gutter-right)
+      calc(24px + env(safe-area-inset-bottom))
+      var(--gutter-left);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--color-page);
+  }
+
+  .is-responsive .mobile-menu[hidden] {
+    display: none;
+  }
+
+  .mobile-menu__links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobile-menu__link {
+    display: block;
+    padding: 6px 0;
+    color: var(--color-text);
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .mobile-menu__link[aria-current="page"] {
+    color: var(--color-link-active);
+  }
+
+  .mobile-menu__bottom {
+    margin-top: auto;
+    padding-top: 32px;
+  }
+
+  /* The same Resume button as the navbar, made wide and easy to tap. */
+  .mobile-menu .navbar__resume {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 480px;
+    height: 52px;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  /* Keeps the page underneath from scrolling while the menu is open. */
+  .menu-open,
+  .menu-open body {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 1023px) and (prefers-reduced-motion: reduce) {
+  .menu-toggle__line {
+    transition: none;
+  }
+}
+
+/* =====================================================================
+   Touch screens (no hover)
+   ===================================================================== */
+
+@media (hover: none) {
+  /* A 44px tap area around the 60 x 32 switch. The border is see-through and
+     outside the drawing, so the switch looks the same. */
+  .is-responsive .theme-switch {
+    box-sizing: content-box;
+    margin: -6px;
+    border: 6px solid transparent;
+    background-clip: padding-box;
+  }
+
+  /* Hover effects become a short press instead. */
+  .is-responsive .case-card__button,
+  .is-responsive .lumen-prototype,
+  .is-responsive .navbar__resume,
+  .is-responsive .hero__social a,
+  .is-responsive .cert-card,
+  .is-responsive .mobile-menu__link {
+    transition: transform 0.15s ease;
+  }
+
+  .is-responsive .case-card:active .case-card__button,
+  .is-responsive .lumen-prototype:active,
+  .is-responsive .navbar__resume:active,
+  .is-responsive .hero__social a:active,
+  .is-responsive .cert-card:active,
+  .is-responsive .mobile-menu__link:active {
+    transform: scale(0.96);
+  }
+
+  /* A tap shouldn't leave the hover look stuck on the button. */
+  .is-responsive .case-card__button:hover {
+    padding-left: 39px;
+    background-position: 130% 0, 0 0;
+    box-shadow: none;
+  }
+
+  .is-responsive .case-card__button:hover::before {
+    width: 10px;
+    height: 10px;
+    background-position: -18px 50%;
+    animation: none;
+  }
+
+  /* Social labels are hover-only, so touch screens rely on the aria-labels. */
+  .is-responsive .social-tip-anchor {
+    display: none;
+  }
+}
+
+@media (hover: none) and (max-width: 399px) {
+  .is-responsive .case-card__button:hover {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,1709 @@
+/* Shared styles for every portfolio page.
+   All values come from the Figma file (Work frame, node 2:2). */
+
+:root {
+  /* Colors */
+  --color-page: #f8f7f5;
+  --color-text: #000000;
+  --color-text-muted: #646464;
+  --color-link-active: #0065f3;
+  --color-white: #ffffff;
+  --color-hero: rgba(230, 240, 252, 0.3);
+  --color-card-lumen: #bdc5f8;
+  --color-card-pawmatch: #ffe5a2;
+  --color-card-hrtech: #d4fec5;
+  --color-button: #1e1414;
+  --color-button-text: #fefff1;
+  --color-footer-start: #070806;
+  --color-footer-end: #2b3526;
+  --color-about-panel: #f2f6ff;
+  --color-about-text: #616161;
+  --color-about-muted: #7c7c7a;
+  --color-about-more: #6e737f;
+  --color-about-closing: #3e3e3d;
+  --color-divider: #d4d3d0;
+  --color-pill-start: #eeecf9;
+  --color-pill-end: #f5e5d6;
+  --color-skills-panel: #dce7ff;
+  --color-skill: #426eff;
+  --color-tile-start: #fbeaf2;
+  --color-tile-end: #f7ecfc;
+  --color-fun-text: #7c7c7b;
+  --color-fun-snippets: #363636;
+  --color-lumen-panel: #fcf7ea;
+  --color-lumen-heading: #302f2d;
+  --color-lumen-label: #c7b584;
+  --color-lumen-contents-label: #b5a37e;
+  --color-lumen-contents: #3f5469;
+  --color-lumen-value: #2d2b29;
+  --color-lumen-body: #616161;
+  --color-lumen-subtitle: #646464;
+  --color-lumen-caption: #717171;
+  --color-lumen-button: #5e17ea;
+  --color-lumen-button-dot: #f2e2ff;
+  --color-lumen-ring-outer: #fdee98;
+  --color-lumen-ring-inner: #f5bb65;
+
+  /* Fonts */
+  --font-body: "Inter", sans-serif;
+  --font-display: "Lora", serif;
+  --font-ui: "Roboto", sans-serif;
+  --font-section: "Times New Roman", serif;
+  --font-button: "Outfit", sans-serif;
+
+  /* Layout */
+  --page-width: 1440px;
+  --navbar-height: 83px;
+  --logo-size: 54px;
+  --content-left: 237px;
+  --hero-left: 205px;
+  --hero-width: 1031px;
+  --hero-height: 424px;
+  --card-left: 184px;
+  --card-width: 1031px;
+  --card-height: 440px;
+  --card-gap: 90px;
+  --card-padding-left: 88px;
+  --footer-height: 457px;
+
+  /* Radii */
+  --radius-hero: 30px;
+  --radius-photo: 40px;
+  --radius-card: 30px;
+  --radius-button: 30px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  /* Colors that used to be written directly in the rules below */
+  --color-footer-text: #ffffff;
+  --color-on-accent: #ffffff;
+  --color-tool-tile: #ffffff;
+  --color-social: #477adb;
+  --color-tooltip-bg: #1e1414;
+  --color-tooltip-text: #ffffff;
+  --color-cert-border: #ffffff;
+  --color-button-hover-mid: #4a4a4a;
+  --color-button-hover-end: #000000;
+  --color-button-glint: rgba(255, 255, 255, 0.28);
+  --color-button-ring: 254, 255, 241;
+  --button-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='%231e1414' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 7h11M8 2.5 12.5 7 8 11.5'/%3E%3C/svg%3E");
+  --shadow-button: 0 8px 18px rgba(0, 0, 0, 0.28);
+  --shadow-cert: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --shadow-social: rgba(0, 0, 0, 0.12);
+  --card-fill-opacity: 0.3;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-page: #141413;
+  --color-text: #f2f0ed;
+  --color-text-muted: #a8a6a3;
+  --color-link-active: #6b95f2;
+  --color-hero: #1c1b1a;
+  --color-card-lumen: #232136;
+  --color-card-pawmatch: #2d2518;
+  --color-card-hrtech: #1e291b;
+  --color-button: #f2f0ed;
+  --color-button-text: #1e1414;
+  --color-footer-start: #0b0b0b;
+  --color-footer-end: #141c14;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --card-fill-opacity: 1; /* The dark card colors are already the final colors. */
+
+  --color-footer-text: #f2f0ed;
+  --color-about-panel: #1c1b1a;
+  --color-about-text: #a8a6a3;
+  --color-about-muted: #a8a6a3;
+  --color-about-more: #a8a6a3;
+  --color-about-closing: #d6d4d1;
+  --color-divider: #3a3936;
+  --color-pill-start: #26243a;
+  --color-pill-end: #33281f;
+  --color-skills-panel: #1b2233;
+  --color-skill: #3761e6;
+  --color-tool-tile: #232220;
+  --color-fun-text: #a8a6a3;
+  --color-fun-snippets: #d6d4d1;
+  --color-lumen-panel: #1c1b1a;
+  --color-lumen-heading: #f2f0ed;
+  --color-lumen-label: #c7b584;
+  --color-lumen-contents-label: #b5a37e;
+  --color-lumen-contents: #a8b8cb;
+  --color-lumen-value: #e6e4e1;
+  --color-lumen-body: #a8a6a3;
+  --color-lumen-subtitle: #a8a6a3;
+  --color-lumen-caption: #a8a6a3;
+
+  /* The button turns light in dark mode, so its hover colors flip too. */
+  --color-button-hover-mid: #dad8d4;
+  --color-button-hover-end: #bdbbb7;
+  --color-button-glint: rgba(255, 255, 255, 0.6);
+  --color-button-ring: 30, 20, 20;
+  --button-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none' stroke='%23f2f0ed' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1.5 7h11M8 2.5 12.5 7 8 11.5'/%3E%3C/svg%3E");
+  --shadow-button: 0 8px 18px rgba(0, 0, 0, 0.5);
+}
+
+/* The bulb's blend mode hides its pale square on cream, but would hide the whole
+   bulb on a dark panel. */
+[data-theme="dark"] .lumen-bulb {
+  mix-blend-mode: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: var(--page-width);
+  margin: 0;
+  background: var(--color-page);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  /* Matches the Inter letter widths in Figma. Lora and Roboto ignore this setting. */
+  font-variation-settings: "opsz" 18;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+.page {
+  width: var(--page-width);
+  margin: 0 auto;
+}
+
+/* ---------- Shared navbar ---------- */
+
+/* Stays pinned while the page scrolls. The bar spans the full window, so the
+   logo and links are offset to stay aligned with the centered 1440px page.
+   Solid at the top, then fades so content is visible as it passes underneath. */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: var(--navbar-height);
+  background: linear-gradient(180deg, var(--color-page) 53%, transparent 131%);
+}
+
+.navbar__logo {
+  position: absolute;
+  top: 15px;
+  left: calc((100% - var(--page-width)) / 2 + var(--content-left));
+}
+
+.navbar__logo img {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  object-fit: contain;
+}
+
+.navbar__links {
+  position: absolute;
+  top: 30px;
+  right: calc((100% - var(--page-width)) / 2 + 220px);
+  display: flex;
+  column-gap: 40px;
+}
+
+.navbar__link {
+  position: relative;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  white-space: nowrap;
+  transition: color 200ms ease;
+}
+
+/* Hover: the text turns blue and an underline grows from the left. */
+.navbar__link::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-link-active);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+
+.navbar__link:hover,
+.navbar__link:focus-visible {
+  color: var(--color-link-active);
+}
+
+.navbar__link:hover::after,
+.navbar__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__link,
+  .navbar__link::after {
+    transition: none;
+  }
+}
+
+.navbar__link--active {
+  color: var(--color-link-active);
+}
+
+/* ---------- Shared footer ---------- */
+
+.footer {
+  height: var(--footer-height);
+  background: linear-gradient(180deg, var(--color-footer-start) 0%, var(--color-footer-end) 100%);
+  color: var(--color-footer-text);
+  font-family: var(--font-ui);
+}
+
+.footer__inner {
+  position: relative;
+  width: var(--page-width);
+  height: 100%;
+  margin: 0 auto;
+}
+
+.footer__column {
+  position: absolute;
+  top: 49px;
+}
+
+.footer__column--navigation {
+  left: 219px;
+}
+
+.footer__column--contact {
+  left: 564px;
+}
+
+.footer__column--case-studies {
+  left: 909px;
+}
+
+.footer__heading {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.footer__links {
+  margin-top: 13px;
+}
+
+/* Figma places this list 0.6px higher than the other two. */
+.footer__column--case-studies .footer__links {
+  margin-top: 12.4px;
+}
+
+.footer__links li {
+  height: 33.6px;
+  font-size: 16px;
+  line-height: 40px;
+}
+
+/* Figma places "Work" 3px to the right of "About" and "Fun". */
+.footer__link--work {
+  margin-left: 3px;
+}
+
+.footer__copyright,
+.footer__tagline {
+  position: absolute;
+  top: 368px;
+  font-size: 14px;
+  line-height: 40px;
+}
+
+.footer__copyright {
+  left: 120px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer__tagline {
+  left: 951px;
+  white-space: nowrap;
+}
+
+/* Figma draws these emoji smaller than the surrounding 14px text. */
+.footer__emoji {
+  font-size: 11px;
+}
+
+/* ---------- Work page: hero ---------- */
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  width: var(--hero-width);
+  height: var(--hero-height);
+  margin: 13px 0 0 var(--hero-left);
+  padding-left: 32px;
+  border-radius: var(--radius-hero);
+  background: var(--color-hero);
+}
+
+.hero__copy {
+  flex: 0 0 632px;
+  margin-top: 91px;
+}
+
+.hero__title {
+  height: 46px;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 46px;
+  white-space: nowrap;
+}
+
+.hero__title-text {
+  font-family: var(--font-display);
+}
+
+.hero__title-text--bold {
+  font-weight: 700;
+}
+
+.hero__intro {
+  width: 479px;
+  margin-top: 26px;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.hero__social {
+  display: flex;
+  align-items: center;
+  gap: 37px;
+  height: 31px;
+  margin-top: 37px;
+}
+
+.hero__social a {
+  position: relative;
+  display: block;
+  color: var(--color-social);
+  transition: color 0.25s ease;
+}
+
+.hero__social svg {
+  position: relative;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero__social a:hover,
+  .hero__social a:focus-visible {
+    color: var(--brand);
+  }
+}
+
+/* Added by social-icons.js. */
+.social-lift {
+  position: relative;
+  display: block;
+  will-change: transform;
+}
+
+.hero__social .social-lift__shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: drop-shadow(0 6px 10px var(--shadow-social));
+  opacity: 0;
+}
+
+/* Takes no space, so the label can't move the layout. */
+.social-tip-anchor {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  width: 0;
+  pointer-events: none;
+}
+
+.social-tip {
+  position: relative;
+  flex: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--color-tooltip-bg);
+  color: var(--color-tooltip-text);
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 16px;
+  opacity: 0;
+  transform-origin: bottom center;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+
+.social-tip::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -4px;
+  border-top: 4px solid var(--color-tooltip-bg);
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  content: "";
+}
+
+.hero__photo {
+  flex: none;
+  width: 319px;
+  height: 310px;
+  margin-top: 57px;
+  border-radius: var(--radius-photo);
+  object-fit: cover;
+}
+
+/* ---------- Work page: case study cards ---------- */
+
+.case-studies {
+  margin: 26px 0 0 var(--card-left);
+}
+
+/* In Figma the 30% opacity applies to the card fill and its shadow, but not to
+   the content, so both live on a separate background layer. */
+.case-card {
+  position: relative;
+  display: block;
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 74px 0 0 var(--card-padding-left);
+  isolation: isolate;
+  font-family: var(--font-ui);
+}
+
+.case-card + .case-card {
+  margin-top: var(--card-gap);
+}
+
+.case-card::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: var(--radius-card);
+  background: var(--card-color);
+  box-shadow: var(--shadow-card);
+  content: "";
+  opacity: var(--card-fill-opacity);
+}
+
+.case-card--lumen {
+  --card-color: var(--color-card-lumen);
+}
+
+.case-card--pawmatch {
+  --card-color: var(--color-card-pawmatch);
+}
+
+.case-card--hrtech {
+  --card-color: var(--color-card-hrtech);
+}
+
+.case-card__icon,
+.case-card__mockup {
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+}
+
+/* The icon files include their drop shadows, so they are larger than the icon. */
+.case-card--lumen .case-card__icon {
+  top: 47px;
+  left: 84px;
+  width: 88px;
+}
+
+.case-card--pawmatch .case-card__icon,
+.case-card--hrtech .case-card__icon {
+  top: 42px;
+  left: 80px;
+  width: 94px;
+}
+
+/* The mockup files include margins, so they start outside Figma's phone edges.
+   Their built-in backgrounds differ slightly from the cards, so the outer 3px of the
+   two affected files fades out to hide the edge. The phones are not touched. */
+.case-card--lumen .case-card__mockup,
+.case-card--pawmatch .case-card__mockup {
+  mask-image:
+    linear-gradient(to right, transparent, #000 3px, #000 calc(100% - 3px), transparent),
+    linear-gradient(to bottom, transparent, #000 3px, #000 calc(100% - 3px), transparent);
+  mask-composite: intersect;
+}
+
+.case-card--lumen .case-card__mockup {
+  top: 62.4px;
+  left: 546.5px;
+  width: 415.6px;
+}
+
+.case-card--pawmatch .case-card__mockup {
+  top: 23px;
+  left: 539.1px;
+  width: 435.2px;
+}
+
+.case-card--hrtech .case-card__mockup {
+  top: 67.6px;
+  left: 581.7px;
+  width: 405.5px;
+}
+
+.case-card__name {
+  margin-left: 99px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.case-card__label {
+  margin-top: 66px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.case-card__title {
+  margin-top: 15px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  white-space: nowrap;
+}
+
+.case-card__role {
+  margin-top: 39px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.case-card__description {
+  margin-top: 7px;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+/* Hover: the dot springs open into a circle holding an arrow, while a darker
+   gradient washes across the pill with a glint of light. The first background
+   layer is the glint and the second is the fill. */
+.case-card__button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 154px;
+  height: 42px;
+  margin-top: 28px;
+  padding-left: 39px;
+  border-radius: var(--radius-button);
+  background-color: var(--color-button);
+  background-image:
+    linear-gradient(105deg, transparent 42%, var(--color-button-glint) 50%, transparent 58%),
+    linear-gradient(90deg, var(--color-button) 33.4%, var(--color-button-hover-mid) 66.7%, var(--color-button-hover-end) 100%);
+  background-position: 130% 0, 0 0;
+  background-size: 250% 100%, 300% 100%;
+  color: var(--color-button-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 17px;
+  transition:
+    background-position 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms ease,
+    padding-left 450ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.case-card__button::before {
+  position: absolute;
+  top: 50%;
+  left: 21px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-button-text);
+  background-image: var(--button-arrow);
+  background-position: -18px 50%;
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+  content: "";
+  transform: translate(-50%, -50%);
+  transition:
+    background-position 400ms ease,
+    height 450ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    width 450ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Covers the gap left by the lift, so the hover does not flicker at the edge. */
+.case-card__button::after {
+  position: absolute;
+  inset: 0 0 -2px;
+  content: "";
+}
+
+.case-card__button:hover,
+.case-card:focus-visible .case-card__button {
+  padding-left: 44px;
+  background-position: -30% 0, 100% 0;
+  box-shadow: var(--shadow-button);
+  transform: translateY(-2px);
+}
+
+.case-card__button:hover::before,
+.case-card:focus-visible .case-card__button::before {
+  width: 26px;
+  height: 26px;
+  background-position: 50% 50%;
+  /* The first animation runs once. The nudge starts after the arrow has landed. */
+  animation:
+    case-card-ring 700ms ease-out 150ms 1,
+    case-card-nudge 1400ms ease-in-out 800ms infinite;
+  /* The arrow waits for the circle to open. */
+  transition-delay: 180ms, 0ms, 0ms;
+}
+
+.case-card__button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+@keyframes case-card-ring {
+  from {
+    box-shadow: 0 0 0 0 rgba(var(--color-button-ring), 0.55);
+  }
+
+  to {
+    box-shadow: 0 0 0 8px rgba(var(--color-button-ring), 0);
+  }
+}
+
+@keyframes case-card-nudge {
+  0%,
+  100% {
+    background-position: 50% 50%;
+  }
+
+  50% {
+    background-position: calc(50% + 3px) 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-card__button,
+  .case-card__button::before {
+    transition: none;
+  }
+
+  .case-card__button:hover::before,
+  .case-card:focus-visible .case-card__button::before {
+    animation: none;
+  }
+}
+
+.footer-spacer {
+  height: 107px;
+}
+
+/* ---------- About page ---------- */
+
+.about-title {
+  height: 51px;
+  margin: 19px 0 0 604px;
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 51px;
+  white-space: nowrap;
+}
+
+.about-intro {
+  position: relative;
+  width: 1005px;
+  height: 771px;
+  margin: 49px 0 0 217px;
+  border-radius: 30px;
+  background: var(--color-about-panel);
+}
+
+.about-intro__heading {
+  position: absolute;
+  top: 68px;
+  left: 47px;
+  width: 520px;
+  height: 41px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 41px;
+  white-space: nowrap;
+}
+
+.about-intro__heading-text {
+  font-family: var(--font-display);
+}
+
+.about-intro__heading-text--bold {
+  font-weight: 700;
+}
+
+.about-intro__bio {
+  position: absolute;
+  top: 136px;
+  left: 47px;
+  width: 484px;
+  color: var(--color-about-text);
+  font-family: var(--font-ui);
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.about-intro__bio p + p {
+  margin-top: 25px;
+}
+
+.about-intro__photo {
+  position: absolute;
+  top: 135px;
+  left: 567px;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.section-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 49px;
+  padding-top: 2px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, var(--color-pill-start) 0%, var(--color-pill-end) 100%);
+  font-family: var(--font-section);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 25px;
+  white-space: nowrap;
+}
+
+.section-pill--experience {
+  width: 175px;
+  margin: 49px 0 0 632px;
+}
+
+.section-pill--skills {
+  width: 136px;
+  margin: 33px 0 0 652px;
+}
+
+.section-pill--tools {
+  width: 187px;
+  margin: 49px 0 0 627px;
+}
+
+.section-pill--certificates {
+  width: 187px;
+  margin: 49px 0 0 627px;
+}
+
+.experience {
+  position: relative;
+  width: 998px;
+  margin: 49px 0 0 222px;
+  color: var(--color-about-muted);
+  font-family: var(--font-ui);
+}
+
+/* The two divider lines start at different points in Figma. */
+.experience::before,
+.experience::after {
+  position: absolute;
+  width: 1057px;
+  height: 1px;
+  background: var(--color-divider);
+  content: "";
+}
+
+.experience::before {
+  top: 79px;
+  left: -29px;
+}
+
+.experience::after {
+  top: 177px;
+  left: -33px;
+}
+
+.experience__item {
+  display: flex;
+  justify-content: space-between;
+  height: 97px;
+  text-align: right;
+}
+
+.experience__role {
+  padding-top: 1px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+.experience__details {
+  margin-right: -1px;
+}
+
+.experience__place {
+  margin-top: 2px;
+  margin-right: 1px;
+  font-size: 24px;
+  line-height: 25px;
+}
+
+.experience__details--university .experience__place {
+  margin-right: 3px;
+}
+
+.experience__dates {
+  margin-top: 11px;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.skills {
+  width: 996px;
+  height: 289px;
+  margin: 34px 0 0 222px;
+  padding: 39px 0 0 42px;
+  border-radius: 20px;
+  background: var(--color-skills-panel);
+  font-family: var(--font-ui);
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.skills__row {
+  display: flex;
+  align-items: flex-start;
+  height: 39px;
+}
+
+.skills__row + .skills__row {
+  margin-top: 18px;
+}
+
+.skill {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  height: 39px;
+  padding-right: 1px;
+  border-radius: 10px;
+  background: var(--color-skill);
+  color: var(--color-on-accent);
+  white-space: nowrap;
+}
+
+/* Figma places the CSS pill 1px lower than the rest of its row. */
+.skill--lowered {
+  margin-top: 1px;
+}
+
+.skills__more {
+  margin-top: 7px;
+  color: var(--color-about-more);
+}
+
+.tools {
+  margin: 45px 0 0 318px;
+  font-family: var(--font-ui);
+}
+
+.tools__row {
+  display: flex;
+  gap: 106px;
+}
+
+.tools__row--second {
+  margin-top: 25px;
+}
+
+.tools__row--second .tool:nth-child(2) {
+  margin: 0 -1px 0 1px;
+}
+
+.tool {
+  position: relative;
+  flex: none;
+  width: 197px;
+  height: 169px;
+  border-radius: 20px;
+  background: var(--color-tool-tile);
+}
+
+.tool::before {
+  position: absolute;
+  top: 29px;
+  left: 60px;
+  width: 78px;
+  height: 77px;
+  border-radius: 20px;
+  background: linear-gradient(148.83deg, var(--color-tile-start) 12.23%, var(--color-tile-end) 80.43%);
+  content: "";
+}
+
+.tool__icon {
+  position: absolute;
+  top: 47px;
+  left: 78px;
+}
+
+.tool__icon--figma {
+  left: 84.83px;
+}
+
+.tool__name {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25px;
+  white-space: nowrap;
+}
+
+/* Certificates deck. The fan positions live here, and certificates.js reads them,
+   so the fan still shows if Motion fails to load. */
+.cert-subtitle {
+  margin-top: 12px;
+  color: var(--color-about-muted);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+}
+
+.cert-deck {
+  position: relative;
+  height: 450px;
+  margin-top: 16px;
+}
+
+.cert-card {
+  position: absolute;
+  top: 44px;
+  left: calc(50% - 240px);
+  width: 480px;
+  height: 340px;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: none;
+  transform: translate(var(--fan-x), var(--fan-y)) rotate(var(--fan-r));
+  will-change: transform;
+}
+
+.cert-card:nth-child(1) {
+  --fan-x: -432px;
+  --fan-y: 24px;
+  --fan-r: -8deg;
+  --stack-r: -6deg;
+  z-index: 1;
+}
+
+.cert-card:nth-child(2) {
+  --fan-x: -144px;
+  --fan-y: 4px;
+  --fan-r: -3deg;
+  --stack-r: 3deg;
+  z-index: 2;
+}
+
+.cert-card:nth-child(3) {
+  --fan-x: 144px;
+  --fan-y: 4px;
+  --fan-r: 3deg;
+  --stack-r: -2deg;
+  z-index: 3;
+}
+
+.cert-card:nth-child(4) {
+  --fan-x: 432px;
+  --fan-y: 24px;
+  --fan-r: 8deg;
+  --stack-r: 5deg;
+  z-index: 4;
+}
+
+.cert-card.is-active {
+  z-index: 10;
+}
+
+/* Keeps the hover when the card lifts away from the pointer. */
+.cert-card.is-active::after {
+  position: absolute;
+  inset: 0 0 -32px;
+  content: "";
+}
+
+.cert-card:focus-visible {
+  outline: 3px solid var(--color-link-active);
+  outline-offset: 3px;
+}
+
+.cert-card__face {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border: 8px solid var(--color-cert-border);
+  border-radius: 20px;
+  background: var(--color-cert-border);
+  box-shadow: var(--shadow-cert);
+}
+
+.cert-card__face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The height is reserved, so the page doesn't move when text appears. */
+.cert-caption {
+  display: flow-root;
+  min-height: 46px;
+  opacity: 0;
+  text-align: center;
+}
+
+.cert-caption__title {
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.cert-caption__meta {
+  margin-top: 2px;
+  color: var(--color-about-muted);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.about-closing {
+  width: 440px;
+  margin: 63px 0 0 484px;
+  color: var(--color-about-closing);
+  font-family: var(--font-ui);
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.about-footer-spacer {
+  height: 42px;
+}
+
+/* ---------- Fun page ---------- */
+
+.fun-title {
+  height: 51px;
+  margin: 15px 0 0 481px;
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 51px;
+  white-space: nowrap;
+}
+
+.fun-text {
+  color: var(--color-fun-text);
+  font-family: var(--font-ui);
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.fun-photo {
+  flex: none;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.fun-photo--large {
+  margin-top: 37px;
+  border-radius: 30px;
+}
+
+.fun-photo--rounder {
+  border-radius: 50px;
+}
+
+.fun-matcha {
+  display: flex;
+  gap: 29px;
+  margin: 59px 0 0 229px;
+}
+
+.fun-matcha__main {
+  width: 610px;
+}
+
+.fun-matcha__text {
+  width: 430px;
+  margin-left: 8px;
+}
+
+.fun-matcha__side {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.fun-curious {
+  display: flex;
+  gap: 42px;
+  margin: 30px 0 0 229px;
+}
+
+/* Figma's box is 456px. Browsers need 455px to break the lines in the same places. */
+.fun-curious__text {
+  width: 455px;
+  margin-top: 142px;
+}
+
+.fun-row {
+  display: flex;
+  gap: 9px;
+  margin-left: 229px;
+}
+
+.fun-row--travel {
+  margin-top: 21px;
+}
+
+.fun-friends__text {
+  width: 993px;
+  margin: 51px 0 0 229px;
+}
+
+.fun-row--friends {
+  margin-top: 51px;
+}
+
+.fun-snippets {
+  width: 407px;
+  margin: 51px 0 0 516px;
+  color: var(--color-fun-snippets);
+  font-family: var(--font-ui);
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.fun-row--closing {
+  gap: 17px;
+  margin-top: 29px;
+}
+
+.fun-thanks {
+  margin-top: 74px;
+  color: var(--color-about-closing);
+  font-family: var(--font-ui);
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.fun-footer-spacer {
+  height: 74px;
+}
+
+/* ---------- Lumen case study ---------- */
+
+.lumen {
+  position: relative;
+  display: flow-root;
+  height: 12088px;
+}
+
+.lumen--pawmatch {
+  height: 10203px;
+}
+
+/* Paragraphs and a bulleted list set as one block of text. */
+.lumen-stack > * + * {
+  margin-top: 1lh;
+}
+
+.lumen-stack--tight > * + * {
+  margin-top: 0;
+}
+
+.lumen-list {
+  padding-left: 30px;
+  list-style: disc;
+}
+
+.lumen-list--tight {
+  padding-left: 23px;
+}
+
+/* The bulb image has a pale square behind it. This hides it on a cream panel. */
+.lumen-bulb {
+  mix-blend-mode: darken;
+}
+
+/* Keep section headings clear of the pinned navbar after a Contents jump. */
+.lumen [id] {
+  scroll-margin-top: calc(var(--navbar-height) + 24px);
+}
+
+.at {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: var(--w, auto);
+  max-width: none;
+  margin: 0;
+}
+
+.lumen-panel {
+  height: var(--h);
+  background: var(--color-lumen-panel);
+}
+
+.lumen-title {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 51px;
+  white-space: nowrap;
+}
+
+.lumen-case {
+  color: var(--color-lumen-subtitle);
+  font-family: var(--font-ui);
+  font-size: 24px;
+  line-height: 28px;
+  white-space: nowrap;
+}
+
+.lumen-logo-purple {
+  transform: rotate(-10deg);
+}
+
+/* Holds its starting position on screen, and stops at the end of the case study. */
+.lumen-contents {
+  position: sticky;
+  top: calc(var(--navbar-height) + 174px);
+  z-index: 10;
+  width: 142px;
+  height: 308px;
+  margin: 174px 0 0 1298px;
+}
+
+.lumen-contents__label,
+.lumen-contents__link {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  white-space: nowrap;
+}
+
+.lumen-contents__label {
+  color: var(--color-lumen-contents-label);
+}
+
+.lumen-contents__link {
+  color: var(--color-lumen-contents);
+}
+
+.lumen-heading {
+  color: var(--color-lumen-heading);
+  font-family: var(--font-section);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 46px;
+  white-space: nowrap;
+}
+
+.lumen-subheading {
+  font-family: var(--font-section);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28px;
+  white-space: nowrap;
+}
+
+.lumen-ring {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-lumen-ring-outer);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px var(--color-lumen-ring-inner);
+}
+
+.lumen-label {
+  color: var(--color-lumen-label);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.lumen-value {
+  color: var(--color-lumen-value);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.lumen-caption {
+  color: var(--color-lumen-caption);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  line-height: 13px;
+  white-space: nowrap;
+}
+
+.lumen-body {
+  color: var(--color-lumen-body);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.lumen-body strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.lumen-body--medium {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.lumen-body--large {
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.lumen-feature,
+.lumen-takeaway {
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 19px;
+}
+
+/* These lines break only where the HTML says, as in Figma. */
+.lumen-feature {
+  white-space: nowrap;
+}
+
+/* Browsers draw this emoji wider than Figma does. */
+.lumen-seed {
+  margin-right: -0.17em;
+}
+
+.lumen-prototype {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 180px;
+  height: 51px;
+  padding-left: 19px;
+  border-radius: 30px;
+  background: var(--color-lumen-button);
+  color: var(--color-on-accent);
+  font-family: var(--font-button);
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+.lumen-prototype::before {
+  flex: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--color-lumen-button-dot);
+  content: "";
+}
+
+/* Added by prototype-button.js, which replaces the ::before dot with a real one
+   of the same size, so it can grow and hold an arrow. */
+.has-proto-motion::before {
+  display: none;
+}
+
+.proto-dot {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--color-lumen-button-dot);
+  will-change: transform;
+}
+
+.proto-arrow {
+  width: 7px;
+  height: 7px;
+  stroke: var(--color-lumen-button);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.proto-label {
+  display: block;
+  will-change: transform;
+}
+
+.proto-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 10px 24px var(--proto-glow, rgba(94, 23, 234, 0.45));
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Paw Match uses its own brown for the button, its arrow, and its hover glow. */
+.lumen--pawmatch .lumen-prototype {
+  --color-lumen-button: #a45910;
+  --proto-glow: rgba(164, 89, 16, 0.45);
+}
+
+/* ---------- HR-Tech case study ---------- */
+
+.lumen--hrtech {
+  height: 8979px;
+}
+
+.lumen-heading--small {
+  font-size: 32px;
+  line-height: 37px;
+}
+
+.lumen-body--soft-bold strong {
+  color: inherit;
+}
+
+.lumen-body--relaxed {
+  font-size: 15.4px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.lumen-list--narrow {
+  padding-left: 20px;
+}
+
+.lumen-flow-label {
+  font-family: var(--font-ui);
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 28px;
+  white-space: nowrap;
+}
+
+/* HR-Tech UX audit table. */
+.lumen-audit {
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-family: var(--font-section);
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.lumen-audit th {
+  height: 53px;
+  padding: 0;
+  font-weight: 700;
+  text-align: left;
+  vertical-align: top;
+}
+
+.lumen-audit td {
+  padding: 31px 0 0;
+  border-top: 1px solid var(--color-divider);
+  vertical-align: top;
+}
+
+.lumen-audit th:nth-child(1),
+.lumen-audit td:nth-child(1) {
+  width: 367px;
+  padding-right: 136px;
+}
+
+.lumen-audit td:nth-child(1) {
+  padding-left: 3px;
+}
+
+.lumen-audit th:nth-child(2),
+.lumen-audit td:nth-child(2) {
+  width: 361px;
+  padding-right: 133px;
+}
+
+.lumen-audit th:nth-child(3),
+.lumen-audit td:nth-child(3) {
+  padding-right: 10px;
+}
+
+/* ---------- Closing lines: a gentle shake that keeps running ---------- */
+
+.about-closing,
+.fun-thanks {
+  animation: closing-shake 1.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes closing-shake {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(-1.5px) rotate(-0.8deg);
+  }
+
+  75% {
+    transform: translateX(1.5px) rotate(0.8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-closing,
+  .fun-thanks {
+    animation: none;
+  }
+}
+
+/* ---------- Dark mode: line illustrations ---------- */
+
+/* Black lines on a cream background flip to soft white lines, and the screen
+   blend lets the page show through where the cream was. contrast() takes what's
+   left of the cream down to black, which is what makes the box fully disappear,
+   and sepia() warms the white slightly. */
+[data-theme="dark"] .illo-line {
+  background: transparent;
+  filter: invert(1) hue-rotate(180deg) contrast(1.12) sepia(0.6) brightness(0.92);
+  mix-blend-mode: screen;
+  transition: filter 0.3s ease;
+}
+
+/* ---------- Dark mode: colored images ---------- */
+
+/* The tile grows outward from the image, so the number or bulb stays exactly where
+   it is in light mode. object-position moves the cream original out of view, and
+   the transparent copy shows in its place as a background. */
+[data-theme="dark"] .illo-color {
+  box-sizing: content-box;
+  padding: 8px;
+  margin: -9px 0 0 -9px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  background-color: #262524;
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-shadow: 0 0 20px rgba(107, 149, 242, 0.15);
+  mix-blend-mode: normal;
+  object-position: -9999px 0;
+}
+
+[data-theme="dark"] .illo-color[src$="lumen_challenge1.png"] {
+  background-image: url("../Photos/lumen/number-1-transparent.png");
+}
+
+[data-theme="dark"] .illo-color[src$="lumen_challenge2.png"] {
+  background-image: url("../Photos/lumen/number-2-transparent.png");
+}
+
+[data-theme="dark"] .illo-color[src$="lumen_challenge3.png"] {
+  background-image: url("../Photos/lumen/number-3-transparent.png");
+}
+
+[data-theme="dark"] .illo-color[src$="lumen_challenge4.png"] {
+  background-image: url("../Photos/lumen/number-4-transparent.png");
+}
+
+[data-theme="dark"] .illo-color[src$="lumen_challenge5.png"] {
+  background-image: url("../Photos/lumen/number-5-transparent.png");
+}
+
+[data-theme="dark"] .illo-color[src$="lumen_challenge6.png"] {
+  background-image: url("../Photos/lumen/number-6-transparent.png");
+}
+
+/* Bulbs sit 4px from their text, so these tiles can't take the 8px padding. */
+[data-theme="dark"] .illo-color[src$="bulb.png"] {
+  padding: 0;
+  margin: -1px 0 0 -1px;
+  background-image: url("../Photos/lumen/from-export/bulb-transparent.png");
+  box-shadow: 0 0 20px rgba(255, 200, 61, 0.15);
+}
+
+/* ---------- Dark mode: diagrams ---------- */
+
+/* Diagrams flip light and dark but keep their hues, so dark text turns light and
+   the purple boxes stay purple. Like the line art, the cream background drops out. */
+[data-theme="dark"] .illo-diagram {
+  filter: invert(1) hue-rotate(180deg) contrast(1.12) brightness(0.92);
+  mix-blend-mode: screen;
+  transition: filter 0.3s ease;
+}
+
+/* An untouched copy of the competitor image, cut down to just the four app logos
+   and placed over the flipped one, so the logos keep their real colors. */
+.illo-logos {
+  display: none;
+}
+
+[data-theme="dark"] .illo-logos {
+  display: block;
+  clip-path: path("M92.25 10.75H124.25A13 13 0 0 1 137.25 23.75V56.75A13 13 0 0 1 124.25 69.75H92.25A13 13 0 0 1 79.25 56.75V23.75A13 13 0 0 1 92.25 10.75ZM330.5 10.75H362.5A13 13 0 0 1 375.5 23.75V56.75A13 13 0 0 1 362.5 69.75H330.5A13 13 0 0 1 317.5 56.75V23.75A13 13 0 0 1 330.5 10.75ZM568.75 10.75H600.75A13 13 0 0 1 613.75 23.75V56.75A13 13 0 0 1 600.75 69.75H568.75A13 13 0 0 1 555.75 56.75V23.75A13 13 0 0 1 568.75 10.75ZM806.5 10.75H838.5A13 13 0 0 1 851.5 23.75V56.75A13 13 0 0 1 838.5 69.75H806.5A13 13 0 0 1 793.5 56.75V23.75A13 13 0 0 1 806.5 10.75Z");
+}
+
+/* ---------- Dark mode: HR-Tech flow arrow ---------- */
+
+/* The arrow beside "Invitation Link" is drawn in black, so it turns light here. */
+[data-theme="dark"] .lumen--hrtech svg.at {
+  stroke: var(--color-text);
+}

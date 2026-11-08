@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Applies the theme before the page draws, so dark mode never flashes light. -->
+    <script>
+      (function () {
+        var theme = null;
+        try { theme = localStorage.getItem("theme"); } catch (error) {}
+        // Light is the default. Dark mode only turns on after the switch is clicked.
+        if (theme !== "dark") theme = "light";
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Moe Mya Myintzu_Portfolio</title>
+    <link rel="icon" type="image/png" href="../namelogo.png" />
+    <link rel="apple-touch-icon" href="../namelogo.png" />
+    <meta
+      name="description"
+      content="Case study: auditing and redesigning sign-up and onboarding for an HR-tech platform."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400&family=Lora:wght@400;700&family=Outfit:wght@400&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css?v=23" />
+    <link rel="stylesheet" href="../cursor.css?v=4" />
+    <link rel="stylesheet" href="../navbar-motion.css?v=1" />
+    <link rel="stylesheet" href="../theme-switch.css?v=1" />
+    <link rel="stylesheet" href="../resume-button.css?v=1" />
+    <link rel="stylesheet" href="../css/responsive.css?v=4" />
+    <!-- Hides the content until animations.js is ready, and gives up after 2.5s if it never loads. -->
+    <style>.anim-wait main { opacity: 0; }</style>
+    <script>
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("anim-wait");
+        setTimeout(function () { document.documentElement.classList.remove("anim-wait"); }, 2500);
+      }
+    </script>
+  </head>
+  <body id="top" class="is-responsive">
+    <!-- SHARED NAVBAR: copy this block to every page and move. -->
+    <header class="navbar">
+      <a class="navbar__logo" href="work.html" aria-label="Moe Mya Myintzu, home">
+        <img src="../namelogo.png" alt="" width="54" height="54" />
+      </a>
+      <nav class="navbar__links" aria-label="Main navigation">
+        <a class="navbar__link" href="work.html">Work</a>
+        <a class="navbar__link" href="about.html">About</a>
+        <a class="navbar__link" href="fun.html">Fun</a>
+        <a class="navbar__resume" href="../MoeMyaMyintzu_Resume.pdf" target="_blank" rel="noopener" aria-label="Open Moe Mya Myintzu's resume (PDF, opens in new tab)">
+          <span class="navbar__resume-icon" aria-hidden="true">
+            <svg class="navbar__resume-arrow" viewBox="0 0 18 18"><path d="M9 2.5v8.5M5.5 7.5 9 11l3.5-3.5" /></svg>
+            <svg class="navbar__resume-tray" viewBox="0 0 18 18"><path d="M3 11.5v2.5a1.5 1.5 0 0 0 1.5 1.5h9a1.5 1.5 0 0 0 1.5-1.5v-2.5" /></svg>
+          </span>
+          <span class="navbar__resume-label">Resume</span>
+        </a>
+      </nav>
+    </header>
+    <!-- END SHARED NAVBAR -->
+
+    <div class="page">
+      <!-- Each element is placed at its Figma position using --x, --y, and --w. -->
+      <main class="lumen lumen--hrtech">
+        <section aria-label="Project introduction">
+          <h1 class="at lumen-title" style="--x:451px;--y:23px">Sign-Up &amp; Onboarding Redesign</h1>
+          <p class="at lumen-case" style="--x:660px;--y:74px">Design Challenge</p>
+          <img class="at " style="--x:231px;--y:118px" src="../Photos/HR-Tech/HR-Tech1.png" alt="HR-Tech cover: the company choice, sign-up, and team size screens shown as overlapping browser windows" width="995" height="611" />
+        </section>
+        <nav class="lumen-contents" aria-label="Contents">
+            <p class="at lumen-contents__label" style="--x:0px;--y:0px">CONTENTS</p>
+            <a class="at lumen-contents__link" style="--x:0px;--y:20px" href="#overview">Overview</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:48px" href="#challenge">The Challenge</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:76px" href="#ux-audit">UX Audit</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:104px" href="#solution">The Solution</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:129px" href="#key-designs">Key Designs</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:157px" href="#reflections">Reflections</a>
+            <a class="at lumen-contents__link" style="--x:0px;--y:185px" href="#top">back to Top</a>
+        </nav>
+        <section aria-label="Overview">
+          <div class="at lumen-panel" style="--x:135px;--y:786px;--w:1151px;--h:1365px"></div>
+          <h2 class="at lumen-heading" style="--x:243px;--y:840px" id="overview">✨ Overview</h2>
+          <p class="at lumen-label" style="--x:243px;--y:924px">ROLE</p>
+          <p class="at lumen-value" style="--x:368px;--y:922px;--w:743px">UX/UI Designer</p>
+          <p class="at lumen-label" style="--x:243px;--y:985px">PLATFORM</p>
+          <p class="at lumen-value" style="--x:368px;--y:983px;--w:743px">Desktop web</p>
+          <p class="at lumen-label" style="--x:243px;--y:1039px">Timeline</p>
+          <p class="at lumen-value" style="--x:368px;--y:1037px;--w:743px">2026</p>
+          <p class="at lumen-label" style="--x:243px;--y:1093px">TOOLS</p>
+          <p class="at lumen-value" style="--x:368px;--y:1091px;--w:743px">Figma</p>
+          <p class="at lumen-label" style="--x:243px;--y:1147px">DELIVERABLES</p>
+          <p class="at lumen-value" style="--x:368px;--y:1145px;--w:743px">UX audit, improved user flow, redesigned sign-up and onboarding screens</p>
+          <p class="at lumen-label" style="--x:243px;--y:1226px">OVERVIEW</p>
+          <p class="at lumen-value" style="--x:368px;--y:1224px;--w:743px">I was given the sign-up experience of an HR-tech platform as a design challenge: a login page, a registration page, a 3-step company onboarding, and a dashboard. Users were abandoning sign-up partway through, invited employees were asked for company details their HR admin had already set up, and form errors only appeared after clicking the button. I audited the journey, separated the flows by user type, and redesigned the forms with clearer questions and live validation, so sign-up is faster and easier to understand.</p>
+        </section>
+        <section aria-label="The Challenge">
+          <h2 class="at lumen-heading" style="--x:243px;--y:1428px" id="challenge">✨ The Challenge</h2>
+          <span class="at lumen-ring" style="--x:245px;--y:1520px"></span>
+          <h3 class="at lumen-subheading" style="--x:277px;--y:1518px">Problem Framing</h3>
+          <p class="at lumen-body" style="--x:277px;--y:1564px;--w:900px">Sign-up is a user’s first impression of a product, and for this HR-tech platform it was losing people before they ever reached the dashboard. Users abandoned onboarding partway through, invited employees were treated like new company creators, and form errors appeared too late to be useful. The flow assumed everyone was the same person, with the same knowledge, at the same stage.</p>
+          <span class="at lumen-ring" style="--x:246px;--y:1682px"></span>
+          <h3 class="at lumen-subheading" style="--x:279px;--y:1680px">Pinpointing Issues</h3>
+          <p class="at lumen-body" style="--x:279px;--y:1719px;--w:900px">The first three were reported by users. I found the rest while auditing the screens.</p>
+          <img class="at illo-color" style="--x:275px;--y:1773px" src="../Photos/lumen/lumen_challenge1.png" alt="" width="40" height="53" />
+          <img class="at illo-color" style="--x:276px;--y:1878px" src="../Photos/lumen/lumen_challenge2.png" alt="" width="40" height="53" />
+          <img class="at illo-color" style="--x:276px;--y:1984px" src="../Photos/lumen/lumen_challenge3.png" alt="" width="40" height="53" />
+          <img class="at illo-color" style="--x:747px;--y:1775px" src="../Photos/lumen/lumen_challenge4.png" alt="" width="40" height="53" />
+          <img class="at illo-color" style="--x:746px;--y:1879px" src="../Photos/lumen/lumen_challenge5.png" alt="" width="40" height="53" />
+          <img class="at illo-color" style="--x:749px;--y:1984px" src="../Photos/lumen/lumen_challenge6.png" alt="" width="40" height="53" />
+          <p class="at lumen-body lumen-body--soft-bold" style="--x:343px;--y:1784px;--w:365px"><strong>High Drop-Off:</strong> Many people abandoned sign-up partway through onboarding.</p>
+          <p class="at lumen-body lumen-body--soft-bold" style="--x:343px;--y:1886px;--w:365px"><strong>One Flow for Everyone:</strong> Invited employees were asked for company details their HR admin had already set up.</p>
+          <p class="at lumen-body lumen-body--soft-bold" style="--x:343px;--y:1992px;--w:365px"><strong>Late, Unhelpful Errors:</strong> People only learned their password was too weak, or their email was already registered, after clicking the button, and the messages didn’t say how to fix it.</p>
+          <p class="at lumen-body lumen-body--soft-bold" style="--x:824px;--y:1784px;--w:395px"><strong>Mismatched Questions:</strong> Step 1 was titled “How big is your team?” but asked for the company name and domain, so the title didn’t match the questions beneath it.</p>
+          <p class="at lumen-body lumen-body--soft-bold" style="--x:822px;--y:1895px;--w:405px"><strong>Unnecessary Required Fields:</strong> Tax ID was required, even though formats differ by country and not every employee knows it, which pushes people to give up.</p>
+          <p class="at lumen-body lumen-body--soft-bold" style="--x:824px;--y:1992px;--w:395px"><strong>Unclear Labels and Choices:</strong> Only six industries<br />were shown, “Location” didn’t say whether to enter<br />a country or an address, and the final step’s button<br />said “Continue” when no more steps remained.</p>
+        </section>
+        <section aria-label="UX Audit">
+          <h2 class="at lumen-heading" style="--x:241px;--y:2220px" id="ux-audit">✨ UX Audit</h2>
+          <p class="at lumen-body" style="--x:292px;--y:2286px;--w:900px">I annotated the existing screens to find what caused each problem:</p>
+          <table class="at lumen-audit" style="--x:266px;--y:2351px;--w:960px">
+            <thead><tr><th scope="col">What I found</th><th scope="col">Why it hurts</th><th scope="col">What I changed</th></tr></thead>
+            <tbody>
+              <tr style="height:129px"><td>Step 1 was titled “How big is your team?” but asked for company name and domain</td><td>The title didn’t match the questions, which was confusing</td><td>Renamed it “Company Information”</td></tr>
+              <tr style="height:129px"><td>Tax ID was required</td><td>Tax ID formats differ by country, and people who don’t know it give up</td><td>Made it optional</td></tr>
+              <tr style="height:106px"><td>Industry showed only 6 options</td><td>Too few options for a real company</td><td>Searchable dropdown</td></tr>
+              <tr style="height:129px"><td>“Location” field</td><td>Unclear whether to enter a country or an address, and some companies are remote or multi-country</td><td>“Country/Region of Base”</td></tr>
+              <tr style="height:105px"><td>Last step (Step 3 of 3) said “Continue”</td><td>Suggested another form was coming</td><td>Changed to “Submit”</td></tr>
+              <tr style="height:130px"><td>Everyone got the company form</td><td>Invited employees saw questions that didn’t apply to them</td><td>Split into separate flows</td></tr>
+              <tr style="height:100px"><td>Errors appeared after clicking Sign Up</td><td>Users couldn’t fix problems as they typed</td><td>Inline validation</td></tr>
+            </tbody>
+          </table>
+        </section>
+        <section aria-label="The Solution and Improved Flow">
+          <div class="at lumen-panel" style="--x:135px;--y:3293px;--w:1151px;--h:1083px"></div>
+          <h2 class="at lumen-heading" style="--x:241px;--y:3347px" id="solution">✨The Solution and Improved Flow</h2>
+          <p class="at lumen-body" style="--x:286px;--y:3424px;--w:900px">I redesigned the journey around who is signing up.</p>
+          <h3 class="at lumen-heading lumen-heading--small" style="--x:241px;--y:3483px">User Flow</h3>
+          <img class="at illo-diagram" style="--x:237px;--y:3534px" src="../Photos/HR-Tech/userflow.png" alt="User flow: people with an invitation accept it, sign up or log in, and reach the dashboard. Without one, they choose to create a new company, which goes through sign-up, a 3-step form, and platform admin approval, or join an existing company, by logging in or by signing up and waiting for company admin approval." width="986" height="441" />
+          <div class="at lumen-body lumen-body--relaxed lumen-stack" style="--x:286px;--y:4028px;--w:900px"><p>I separated the invited employee and new company registration flows, so only the person creating a new company needs to fill in the company information form. This prevents invited employees from being asked for company details that have already been set up by their HR admin and reduces confusion during sign-up.<br />I also simplified and improved the form UX to reduce sign-up drop-off. I added comments to each page in the Figma design to explain the changes, such as clearer questions, optional Tax ID, searchable industry selection, and clearer actions.<br />For form errors, I added inline validation to show errors and requirements while users are entering their email and password, so they can understand how to fix them before clicking Sign Up.</p><ul class="lumen-list lumen-list--narrow"><li>Invited employee: Accept invitation → sign up or log in → dashboard (no company form, no admin approval)</li><li>New company: Sign up → 3-step company form → submit → platform admin approval → dashboard</li><li>Existing company, has account: Log in → dashboard</li><li>Existing company, no account: Sign up and choose your company → company admin approval → dashboard</li></ul></div>
+        </section>
+        <section aria-label="Key Design Decisions">
+          <h2 class="at lumen-heading" style="--x:148px;--y:4436px" id="key-designs">✨ Key Design Decisions</h2>
+          <span class="at lumen-ring" style="--x:162px;--y:4528px"></span>
+          <h3 class="at lumen-subheading" style="--x:195px;--y:4526px">Create new company flow</h3>
+          <img class="at " style="--x:147px;--y:4615px" src="../Photos/HR-Tech/createnew1.png" alt="Choice between creating a new company or joining an existing one" width="538" height="326" />
+          <img class="at " style="--x:748px;--y:4615px" src="../Photos/HR-Tech/createnew2.png" alt="Sign-up form showing live email and password validation messages" width="538" height="326" />
+          <p class="at lumen-body" style="--x:748px;--y:4952px;--w:538px">Show errors and requirements while entering email/password, so users can fix them before clicking signup</p>
+          <img class="at " style="--x:147px;--y:5063px" src="../Photos/HR-Tech/createnew3.png" alt="Step 1 of 3: company name, company domain, and an optional Tax ID" width="538" height="326" />
+          <img class="at " style="--x:748px;--y:5063px" src="../Photos/HR-Tech/createnew4.png" alt="Step 2 of 3: searchable industry and country or region dropdowns" width="538" height="326" />
+          <p class="at lumen-body" style="--x:147px;--y:5407px;--w:538px">Old one: The title is “How big is your team?”, but under this title, it asks for the company name and domain. It does not suit the question at all and does not make sense.<br />So, I changed it to “Company Information” for Company Name, Domain, and Tax ID.<br />I made Tax ID optional because different countries have different types of tax IDs.<br />The person who creates the company has to fill out this form, so other employees do not need to fill it out. This helps avoid “Many people abandon sign-up partway through onboarding” because not every employee may know the company’s Tax ID, which could cause them to abandon the sign-up process.</p>
+          <p class="at lumen-body" style="--x:748px;--y:5407px;--w:538px">I changed the industry box selection to a searchable dropdown because there are many industries, so we cannot show only 6 options.<br />For location, showing only “Location” can be confusing because users may not know whether they should enter their country or exact address details. I changed it to “Select Country/Region of Base” because some companies are remote or hybrid, and some companies operate in multiple countries.</p>
+          <img class="at " style="--x:147px;--y:5710px" src="../Photos/HR-Tech/createnew5.png" alt="Step 3 of 3: team size options with Back and Submit buttons" width="538" height="326" />
+          <img class="at " style="--x:748px;--y:5710px" src="../Photos/HR-Tech/createnew6.png" alt="Company registration submitted confirmation message" width="538" height="326" />
+          <p class="at lumen-body" style="--x:147px;--y:6053px;--w:538px">The page says “Step 3 of 3,” but the button says “Continue,” which may make users think there is another form to fill out. So, I changed it to a “Submit” button.</p>
+          <p class="at lumen-body" style="--x:748px;--y:6053px;--w:538px">After submitting, the HR-Tech main admin will review and approve the company registration.This helps prevent unauthorized or unnecessary company registrations.</p>
+          <span class="at lumen-ring" style="--x:162px;--y:6234px"></span>
+          <h3 class="at lumen-subheading" style="--x:195px;--y:6232px">Invited employee Flow</h3>
+          <p class="at lumen-flow-label" style="--x:354px;--y:6497px">Inivitation Link</p>
+          <svg class="at" style="--x:532px;--y:6497px" width="112" height="24" viewBox="0 0 112 24" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12.5L108 12M98 2l10 10-10 10" /></svg>
+          <img class="at " style="--x:640px;--y:6328px" src="../Photos/HR-Tech/invited1.png" alt="Choice between creating a new company or joining an existing one" width="538" height="326" />
+          <img class="at " style="--x:147px;--y:6769px" src="../Photos/HR-Tech/invited2.png" alt="Step 1 of 3: company name, company domain, and an optional Tax ID" width="538" height="326" />
+          <img class="at " style="--x:748px;--y:6769px" src="../Photos/HR-Tech/invited3.png" alt="Step 2 of 3: searchable industry and country or region dropdowns" width="538" height="326" />
+          <p class="at lumen-body" style="--x:147px;--y:7114px;--w:538px">For invited employees, they cannot change the email because it is automatically filled based on the invitation email. The system recognizes the invited email, so no additional admin approval is required. They can access the dashboard directly after completing the sign-up process.</p>
+          <span class="at lumen-ring" style="--x:162px;--y:7312px"></span>
+          <h3 class="at lumen-subheading" style="--x:195px;--y:7310px">Normal Employee (non-invited) Flow</h3>
+          <img class="at " style="--x:147px;--y:7398px" src="../Photos/HR-Tech/normal1.png" alt="Choice between creating a new company or joining an existing one" width="538" height="326" />
+          <img class="at " style="--x:748px;--y:7398px" src="../Photos/HR-Tech/normal2.png" alt="Sign-up form with live validation and a company search field" width="538" height="386" />
+          <p class="at lumen-body" style="--x:748px;--y:7798px;--w:538px">For non-invited employees, they can request to join by choosing their company from the search bar and waiting for the company admin to approve their request. Once they are approved, they can access the dashboard anytime by logging in.</p>
+          <img class="at " style="--x:147px;--y:7928px" src="../Photos/HR-Tech/normal3.png" alt="Thank you for signing up confirmation, explaining that the company admin will review the request" width="538" height="326" />
+          <img class="at " style="--x:748px;--y:7928px" src="../Photos/HR-Tech/normal4.png" alt="Login form showing an incorrect email or password message" width="538" height="326" />
+        </section>
+        <section aria-label="Reflections">
+          <div class="at lumen-panel" style="--x:135px;--y:8328px;--w:1151px;--h:580px"></div>
+          <h2 class="at lumen-heading" style="--x:228px;--y:8380px" id="reflections">✨ Reflections</h2>
+          <span class="at lumen-ring" style="--x:231px;--y:8463px"></span>
+          <h3 class="at lumen-subheading" style="--x:263px;--y:8461px">Key Takeaways</h3>
+          <img class="at illo-line" style="--x:237px;--y:8537px" src="../Photos/lumen/from-export/takeaway1.png" alt="" width="91" height="84" />
+          <p class="at lumen-takeaway" style="--x:345px;--y:8541px;--w:325px">Match the flow to the user: Invited employees, new companies, and joining employees need different paths.</p>
+          <img class="at illo-line" style="--x:750px;--y:8541px" src="../Photos/lumen/from-export/takeaway4.png" alt="" width="91" height="84" />
+          <p class="at lumen-takeaway" style="--x:858px;--y:8554px;--w:325px">Ask only what’s needed: Optional fields and clearer questions reduce drop-off.</p>
+          <img class="at illo-line" style="--x:237px;--y:8682px" src="../Photos/lumen/from-export/takeaway2.png" alt="" width="91" height="84" />
+          <p class="at lumen-takeaway" style="--x:345px;--y:8686px;--w:325px">Help people fix errors as they type: Live validation is faster than a message after submitting.</p>
+          <img class="at illo-line" style="--x:750px;--y:8682px" src="../Photos/lumen/from-export/takeaway3.png" alt="" width="91" height="84" />
+          <p class="at lumen-takeaway" style="--x:858px;--y:8695px;--w:325px">Words are part of the design: Titles and buttons that don’t match the content confuse people as much as layout does.</p>
+          <p class="at lumen-body lumen-body--medium" style="--x:232px;--y:8819px;--w:600px">Thank you for checking out this project! 💙</p>
+        </section>
+      </main>
+    </div>
+
+    <!-- SHARED FOOTER: copy this block to every page. -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <section class="footer__column footer__column--navigation">
+          <h2 class="footer__heading">✨ navigation</h2>
+          <ul class="footer__links">
+            <li><a class="footer__link--work" href="work.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="fun.html">Fun</a></li>
+          </ul>
+        </section>
+        <section class="footer__column footer__column--contact">
+          <h2 class="footer__heading">🌙 contact</h2>
+          <!-- TODO: Instagram still needs a real link or removing. -->
+          <ul class="footer__links">
+            <li><a href="https://www.linkedin.com/in/moe-mya-myintzu-12b960347" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=moemyamyintzu@gmail.com" target="_blank" rel="noopener noreferrer">Email</a></li>
+            <li><a href="https://www.behance.net/moemyamyintzu" target="_blank" rel="noopener noreferrer">Behance</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="https://www.facebook.com/share/1GcZFzNuwt/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          </ul>
+        </section>
+        <section class="footer__column footer__column--case-studies">
+          <h2 class="footer__heading">💫 case studies</h2>
+          <ul class="footer__links">
+            <li><a href="lumen.html">Lumen</a></li>
+            <li><a href="pawmatch.html">Paw Match</a></li>
+            <li><a href="hrtech.html">HR-Tech</a></li>
+          </ul>
+        </section>
+        <p class="footer__copyright">
+          <img src="../Photos/icons/copyright.svg" alt="Copyright" width="12" height="12" />
+          2025- Moe Mya Myintzu
+        </p>
+        <p class="footer__tagline">
+          made with love and iced strawberry matcha lattes <span class="footer__emoji">🫶🏼🧊🍓🍵</span>
+        </p>
+      </div>
+    </footer>
+    <!-- END SHARED FOOTER -->
+    <script src="../cursor.js?v=3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@14.6.0/dist/motion.js" integrity="sha384-wyFtoWIFus6Butv1mjUTfcosTs0hTxLly4xsBL9KKBbd+WuuXov75vD9yhy5UZv9" crossorigin="anonymous"></script>
+    <script src="../navbar-motion.js?v=2"></script>
+    <script src="../resume-button.js?v=1"></script>
+    <script src="../theme.js?v=3"></script>
+    <script src="../mobile-menu.js?v=2"></script>
+    <script src="../case-study-flow.js?v=1"></script>    <script src="../animations.js?v=7"></script>
+  </body>
+</html>

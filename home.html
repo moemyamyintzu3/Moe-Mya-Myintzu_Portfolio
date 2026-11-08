@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Applies the theme before the page draws, so dark mode never flashes light. -->
+    <script>
+      (function () {
+        var theme = null;
+        try { theme = localStorage.getItem("theme"); } catch (error) {}
+        // Light is the default. Dark mode only turns on after the switch is clicked.
+        if (theme !== "dark") theme = "light";
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Command Palette — UX Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio showcasing UX case studies for HR-Tech, Lumen, and PawMatch."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=4" />
+    <link rel="stylesheet" href="cursor.css?v=4" />
+    <link rel="stylesheet" href="navbar-motion.css?v=1" />
+    <link rel="stylesheet" href="theme-switch.css?v=1" />
+    <link rel="stylesheet" href="resume-button.css?v=1" />
+    <!-- Hides the content until animations.js is ready, and gives up after 2.5s if it never loads. -->
+    <style>.anim-wait main { opacity: 0; }</style>
+    <script>
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("anim-wait");
+        setTimeout(function () { document.documentElement.classList.remove("anim-wait"); }, 2500);
+      }
+    </script>
+  </head>
+  <body>
+    <!-- SHARED NAVBAR: same as pages/, with paths adjusted for the site root. -->
+    <header class="navbar">
+      <a class="navbar__logo" href="index.html" aria-label="Moe Mya Myintzu, home">
+        <img src="namelogo.png" alt="" width="54" height="54" />
+      </a>
+      <nav class="navbar__links" aria-label="Main navigation">
+        <a class="navbar__link" href="pages/work.html">Work</a>
+        <a class="navbar__link" href="pages/about.html">About</a>
+        <a class="navbar__link" href="pages/fun.html">Fun</a>
+        <a class="navbar__resume" href="MoeMyaMyintzu_Resume.pdf" target="_blank" rel="noopener" aria-label="Open Moe Mya Myintzu's resume (PDF, opens in new tab)">
+          <span class="navbar__resume-icon" aria-hidden="true">
+            <svg class="navbar__resume-arrow" viewBox="0 0 18 18"><path d="M9 2.5v8.5M5.5 7.5 9 11l3.5-3.5" /></svg>
+            <svg class="navbar__resume-tray" viewBox="0 0 18 18"><path d="M3 11.5v2.5a1.5 1.5 0 0 0 1.5 1.5h9a1.5 1.5 0 0 0 1.5-1.5v-2.5" /></svg>
+          </span>
+          <span class="navbar__resume-label">Resume</span>
+        </a>
+      </nav>
+    </header>
+    <!-- END SHARED NAVBAR -->
+
+    <div class="page-shell">
+      <main>
+        <section id="overview" class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">UX / Product Design Portfolio</p>
+            <h1>Designing clearer paths for people and products.</h1>
+            <p class="lede">
+              I create thoughtful product experiences that blend user empathy, systems thinking,
+              and research-backed design decisions.
+            </p>
+
+            <div class="cta-row">
+              <a class="primary-btn" href="#work">View work</a>
+              <button class="secondary-btn" type="button" data-open-palette>Open command palette</button>
+            </div>
+
+            <ul class="highlights" aria-label="Key strengths">
+              <li>Product strategy</li>
+              <li>UX research</li>
+              <li>Interaction design</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-label="Featured project collage">
+            <div class="visual-card large">
+              <img src="Photos/work/work_lumen.png" alt="Lumen project preview" />
+            </div>
+            <div class="visual-card small top">
+              <img src="Photos/work/work_HR-Tech.png" alt="HR-Tech project preview" />
+            </div>
+            <div class="visual-card small bottom">
+              <img src="Photos/work/work_pawmatch.png" alt="PawMatch project preview" />
+            </div>
+          </div>
+        </section>
+
+        <section id="work" class="work-section">
+          <div class="section-heading">
+            <p class="eyebrow">Selected work</p>
+            <h2>Product stories that improve experience and outcomes.</h2>
+          </div>
+
+          <article class="case-study case-hrtech">
+            <div class="case-copy">
+              <div class="project-tag">HR-Tech</div>
+              <h3>Building a smoother hiring and employee journey.</h3>
+              <p>
+                Redesigned a recruiting workflow to reduce friction for candidates and recruiters,
+                clarifying approvals, status tracking, and onboarding steps across the employee lifecycle.
+              </p>
+              <ul>
+                <li>Journey mapping</li>
+                <li>Workflow redesign</li>
+                <li>Dashboard UX</li>
+              </ul>
+            </div>
+            <div class="case-gallery">
+              <img src="Photos/HR-Tech/HR-Tech1.png" alt="HR-Tech dashboard" />
+              <img src="Photos/HR-Tech/normal1.png" alt="HR-Tech application flow" />
+              <img src="Photos/HR-Tech/invited1.png" alt="HR-Tech invite screen" />
+            </div>
+          </article>
+
+          <article class="case-study case-lumen">
+            <div class="case-copy">
+              <div class="project-tag lumen-tag">Lumen</div>
+              <h3>Turning complex health data into actionable insight.</h3>
+              <p>
+                Crafted a user-centered platform experience for personalized health recommendations,
+                supporting discoverability, trust, and goal-driven engagement across key moments.
+              </p>
+              <ul>
+                <li>Information architecture</li>
+                <li>Usability testing</li>
+                <li>Mobile-first flows</li>
+              </ul>
+            </div>
+            <div class="case-gallery">
+              <img src="Photos/lumen/lumen_home.png" alt="Lumen home" />
+              <img src="Photos/lumen/lumen_profile.png" alt="Lumen profile" />
+              <img src="Photos/lumen/lumen_search.png" alt="Lumen search" />
+            </div>
+          </article>
+
+          <article class="case-study case-pawmatch">
+            <div class="case-copy">
+              <div class="project-tag paw-tag">PawMatch</div>
+              <h3>Helping pet owners find meaningful connections faster.</h3>
+              <p>
+                Designed an approachable matchmaking experience that paired user preferences with
+                behavioral cues to support confident decisions and trust-building.
+              </p>
+              <ul>
+                <li>Personas</li>
+                <li>App flows</li>
+                <li>UX validation</li>
+              </ul>
+            </div>
+            <div class="case-gallery">
+              <img src="Photos/pawmatch/pawmatch_home.png" alt="PawMatch home" />
+              <img src="Photos/pawmatch/pawmatch_find.png" alt="PawMatch matching flow" />
+              <img src="Photos/pawmatch/pawmatch_mypet.png" alt="PawMatch pet profile" />
+            </div>
+          </article>
+        </section>
+
+        <section class="process-section">
+          <div class="section-heading">
+            <p class="eyebrow">Process</p>
+            <h2>How I make ideas useful and delightful.</h2>
+          </div>
+
+          <div class="process-grid">
+            <div class="process-card">
+              <span>01</span>
+              <h3>Research</h3>
+              <p>Understand user needs, pain points, and the business context behind the experience.</p>
+            </div>
+            <div class="process-card">
+              <span>02</span>
+              <h3>Define</h3>
+              <p>Frame the problem clearly, prioritize opportunities, and align teams around direction.</p>
+            </div>
+            <div class="process-card">
+              <span>03</span>
+              <h3>Design</h3>
+              <p>Prototype flows, refine interactions, and shape a cohesive product language.</p>
+            </div>
+            <div class="process-card">
+              <span>04</span>
+              <h3>Validate</h3>
+              <p>Test with users, learn quickly, and iterate toward a high-confidence solution.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="about-section">
+          <div class="portrait-block">
+            <img src="Photos/about/about_profilephoto.png" alt="Portrait" />
+          </div>
+          <div class="about-copy">
+            <p class="eyebrow">About</p>
+            <h2>I design experiences that connect clarity, empathy, and impact.</h2>
+            <p>
+              My work sits at the intersection of product thinking and visual design—translating
+              research into intuitive interfaces that support people at every stage of the journey.
+            </p>
+            <div class="certificates">
+              <img src="Photos/about/about_certificate1.png" alt="Certificate 1" />
+              <img src="Photos/about/about_certificate2.png" alt="Certificate 2" />
+              <img src="Photos/about/about_certificate3.png" alt="Certificate 3" />
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="command-palette" aria-hidden="true">
+      <div class="palette-panel" role="dialog" aria-modal="true" aria-label="Command palette">
+        <div class="palette-header">
+          <span class="command-label">Quick actions</span>
+          <button type="button" class="close-button" aria-label="Close command palette">✕</button>
+        </div>
+
+        <label class="palette-search" for="palette-input">
+          <span>⌕</span>
+          <input id="palette-input" type="text" placeholder="Type a command or section" />
+        </label>
+
+        <div class="palette-list" aria-live="polite">
+          <button class="palette-item is-active" type="button" data-target="#overview">
+            <span>Overview</span>
+            <small>Home</small>
+          </button>
+          <button class="palette-item" type="button" data-target="#work">
+            <span>Work</span>
+            <small>Case studies</small>
+          </button>
+          <button class="palette-item" type="button" data-target="#about">
+            <span>About</span>
+            <small>Profile</small>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="cursor.js?v=3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@14.6.0/dist/motion.js" integrity="sha384-wyFtoWIFus6Butv1mjUTfcosTs0hTxLly4xsBL9KKBbd+WuuXov75vD9yhy5UZv9" crossorigin="anonymous"></script>
+    <script src="navbar-motion.js?v=2"></script>
+    <script src="resume-button.js?v=1"></script>
+    <script src="theme.js?v=3"></script>
+    <script src="animations.js?v=6"></script>
+  </body>
+</html>

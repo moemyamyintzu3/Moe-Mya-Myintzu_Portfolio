@@ -1,0 +1,89 @@
+/* Custom cursor. cursor.js adds .has-custom-cursor to <html> only on devices
+   with a mouse, so touch devices and failed scripts keep the normal cursor. */
+
+@media (hover: hover) and (pointer: fine) {
+  .has-custom-cursor,
+  .has-custom-cursor * {
+    cursor: none !important;
+  }
+
+  .has-custom-cursor input:not([type="button"], [type="checkbox"], [type="color"], [type="file"], [type="image"], [type="radio"], [type="range"], [type="reset"], [type="submit"]),
+  .has-custom-cursor textarea,
+  .has-custom-cursor [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
+
+/* cursor.js sets the position, then centers with translate(-50%, -50%). */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  box-sizing: border-box;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #2f6fe0;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #6b95f2;
+  background-color: rgba(238, 243, 254, 0.7);
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.cursor-visible .cursor-dot,
+.cursor-visible .cursor-ring {
+  opacity: 1;
+}
+
+/* Links and buttons */
+.cursor-over-link .cursor-ring {
+  width: 46px;
+  height: 46px;
+  background-color: rgba(47, 111, 224, 0.15);
+}
+
+/* Mouse down. This comes last so it wins over the hover sizes. */
+.cursor-pressed .cursor-ring {
+  width: 28px;
+  height: 28px;
+}
+
+/* Text fields keep the normal text cursor, so the custom one steps aside. */
+.cursor-over-field .cursor-dot,
+.cursor-over-field .cursor-ring {
+  opacity: 0;
+}
+
+/* Dark mode */
+[data-theme="dark"] .cursor-dot {
+  background: #6b95f2;
+}
+
+[data-theme="dark"] .cursor-ring,
+[data-theme="dark"] .cursor-over-link .cursor-ring {
+  border-color: #6b95f2;
+  background-color: rgba(107, 149, 242, 0.15);
+}
+
+/* Reduced motion: cursor.js removes the delay, and sizes change instantly. */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-ring {
+    transition: none;
+  }
+}

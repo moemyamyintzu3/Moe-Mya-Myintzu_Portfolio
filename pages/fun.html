@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Applies the theme before the page draws, so dark mode never flashes light. -->
+    <script>
+      (function () {
+        var theme = null;
+        try { theme = localStorage.getItem("theme"); } catch (error) {}
+        // Light is the default. Dark mode only turns on after the switch is clicked.
+        if (theme !== "dark") theme = "light";
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Moe Mya Myintzu_Portfolio</title>
+    <link rel="icon" type="image/png" href="../namelogo.png" />
+    <link rel="apple-touch-icon" href="../namelogo.png" />
+    <meta
+      name="description"
+      content="Snippets from Moe Mya Myintzu's life outside of work: matcha, travel, and friends."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400&family=Lora:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css?v=23" />
+    <link rel="stylesheet" href="../cursor.css?v=4" />
+    <link rel="stylesheet" href="../navbar-motion.css?v=1" />
+    <link rel="stylesheet" href="../theme-switch.css?v=1" />
+    <link rel="stylesheet" href="../resume-button.css?v=1" />
+    <link rel="stylesheet" href="../css/responsive.css?v=4" />
+    <!-- Hides the content until animations.js is ready, and gives up after 2.5s if it never loads. -->
+    <style>.anim-wait main { opacity: 0; }</style>
+    <script>
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("anim-wait");
+        setTimeout(function () { document.documentElement.classList.remove("anim-wait"); }, 2500);
+      }
+    </script>
+  </head>
+  <body class="is-responsive">
+    <!-- SHARED NAVBAR: copy this block to every page and move navbar__link--active. -->
+    <header class="navbar">
+      <a class="navbar__logo" href="work.html" aria-label="Moe Mya Myintzu, home">
+        <img src="../namelogo.png" alt="" width="54" height="54" />
+      </a>
+      <nav class="navbar__links" aria-label="Main navigation">
+        <a class="navbar__link" href="work.html">Work</a>
+        <a class="navbar__link" href="about.html">About</a>
+        <a class="navbar__link navbar__link--active" href="fun.html" aria-current="page">Fun</a>
+        <a class="navbar__resume" href="../MoeMyaMyintzu_Resume.pdf" target="_blank" rel="noopener" aria-label="Open Moe Mya Myintzu's resume (PDF, opens in new tab)">
+          <span class="navbar__resume-icon" aria-hidden="true">
+            <svg class="navbar__resume-arrow" viewBox="0 0 18 18"><path d="M9 2.5v8.5M5.5 7.5 9 11l3.5-3.5" /></svg>
+            <svg class="navbar__resume-tray" viewBox="0 0 18 18"><path d="M3 11.5v2.5a1.5 1.5 0 0 0 1.5 1.5h9a1.5 1.5 0 0 0 1.5-1.5v-2.5" /></svg>
+          </span>
+          <span class="navbar__resume-label">Resume</span>
+        </a>
+      </nav>
+    </header>
+    <!-- END SHARED NAVBAR -->
+
+    <div class="page">
+      <main>
+        <h1 class="fun-title">🌙 When I'm Not Working</h1>
+
+        <section class="fun-matcha" aria-label="Matcha">
+          <div class="fun-matcha__main">
+            <p class="fun-text fun-matcha__text">
+              Outside of work, you’ll find me at my favorite matcha shop with a cup in hand. I’m not a
+              coffee person, matcha is my favorite! 🍵
+            </p>
+            <img
+              class="fun-photo fun-photo--large"
+              src="../Photos/fun/fun1.png"
+              alt="Moe Mya Myintzu holding an iced matcha latte"
+              width="610"
+              height="605"
+            />
+          </div>
+          <div class="fun-matcha__side">
+            <img
+              class="fun-photo"
+              src="../Photos/fun/fun2.png"
+              alt="Two iced matcha drinks side by side"
+              width="342"
+              height="337"
+            />
+            <img
+              class="fun-photo"
+              src="../Photos/fun/fun3.png"
+              alt="An iced matcha cup with a handwritten message"
+              width="342"
+              height="330"
+            />
+          </div>
+        </section>
+
+        <section class="fun-curious" aria-label="Curiosity">
+          <img
+            class="fun-photo"
+            src="../Photos/fun/fun4.png"
+            alt="A desk with a computer and a monitor showing code"
+            width="481"
+            height="473"
+          />
+          <p class="fun-text fun-curious__text">
+            I’m a naturally curious person. I love exploring new places, travelling, and learning new
+            things. That curiosity follows me into every app and website I use. When I shop on Shopee, I
+            don’t just buy: I look at every feature and wonder why it works the way it does. I noticed
+            the cart had a limit of 99 items, which made saving things for later hard, and then I saw how
+            the “Likes” feature solved that problem. Little details like that are what I love about
+            design.
+          </p>
+        </section>
+
+        <div class="fun-row fun-row--travel">
+          <img
+            class="fun-photo"
+            src="../Photos/fun/fun5.png"
+            alt="A green hillside beside the sea"
+            width="321"
+            height="319"
+          />
+          <img
+            class="fun-photo"
+            src="../Photos/fun/fun6.png"
+            alt="A hand holding up a small colorful object over wet sand"
+            width="321"
+            height="319"
+          />
+          <img
+            class="fun-photo"
+            src="../Photos/fun/fun7.png"
+            alt="A rocky beach looking out toward an island"
+            width="321"
+            height="319"
+          />
+        </div>
+
+        <p class="fun-text fun-friends__text">
+          I also love spending time with my friends. I’m a big listener, and I enjoy hearing what’s on
+          their minds and giving suggestions that help. Understanding people is a big part of who I am,
+          and it’s a big part of why I love UX.
+        </p>
+
+        <div class="fun-row fun-row--friends">
+          <img
+            class="fun-photo"
+            src="../Photos/fun/fun8.png"
+            alt="A table of shared food and iced drinks"
+            width="321"
+            height="319"
+          />
+          <img
+            class="fun-photo"
+            src="../Photos/fun/fun9.png"
+            alt="Friends working on laptops around a wooden table"
+            width="321"
+            height="319"
+          />
+          <img
+            class="fun-photo"
+            src="../Photos/fun/fun10.png"
+            alt="Moe Mya Myintzu sitting by a large window, seen from behind"
+            width="321"
+            height="319"
+          />
+        </div>
+
+        <p class="fun-snippets">I hope you enjoyed some snippets into my life!♥️</p>
+
+        <div class="fun-row fun-row--closing">
+          <img
+            class="fun-photo fun-photo--rounder"
+            src="../Photos/fun/fun11.png"
+            alt="A sunset above a sea of clouds, seen from a mountain viewpoint"
+            width="482"
+            height="487"
+          />
+          <img
+            class="fun-photo fun-photo--rounder"
+            src="../Photos/fun/fun12.png"
+            alt="Moe Mya Myintzu in a scarf and pink jacket under warm string lights"
+            width="482"
+            height="487"
+          />
+        </div>
+
+        <p class="fun-thanks">thanks for stopping by✨</p>
+      </main>
+      <div class="fun-footer-spacer"></div>
+    </div>
+
+    <!-- SHARED FOOTER: copy this block to every page. -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <section class="footer__column footer__column--navigation">
+          <h2 class="footer__heading">✨ navigation</h2>
+          <ul class="footer__links">
+            <li><a class="footer__link--work" href="work.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="fun.html">Fun</a></li>
+          </ul>
+        </section>
+        <section class="footer__column footer__column--contact">
+          <h2 class="footer__heading">🌙 contact</h2>
+          <!-- TODO: Instagram still needs a real link or removing. -->
+          <ul class="footer__links">
+            <li><a href="https://www.linkedin.com/in/moe-mya-myintzu-12b960347" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=moemyamyintzu@gmail.com" target="_blank" rel="noopener noreferrer">Email</a></li>
+            <li><a href="https://www.behance.net/moemyamyintzu" target="_blank" rel="noopener noreferrer">Behance</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="https://www.facebook.com/share/1GcZFzNuwt/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          </ul>
+        </section>
+        <section class="footer__column footer__column--case-studies">
+          <h2 class="footer__heading">💫 case studies</h2>
+          <ul class="footer__links">
+            <li><a href="lumen.html">Lumen</a></li>
+            <li><a href="pawmatch.html">Paw Match</a></li>
+            <li><a href="hrtech.html">HR-Tech</a></li>
+          </ul>
+        </section>
+        <p class="footer__copyright">
+          <img src="../Photos/icons/copyright.svg" alt="Copyright" width="12" height="12" />
+          2025- Moe Mya Myintzu
+        </p>
+        <p class="footer__tagline">
+          made with love and iced strawberry matcha lattes <span class="footer__emoji">🫶🏼🧊🍓🍵</span>
+        </p>
+      </div>
+    </footer>
+    <!-- END SHARED FOOTER -->
+    <script src="../cursor.js?v=3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@14.6.0/dist/motion.js" integrity="sha384-wyFtoWIFus6Butv1mjUTfcosTs0hTxLly4xsBL9KKBbd+WuuXov75vD9yhy5UZv9" crossorigin="anonymous"></script>
+    <script src="../navbar-motion.js?v=2"></script>
+    <script src="../resume-button.js?v=1"></script>
+    <script src="../theme.js?v=3"></script>
+    <script src="../mobile-menu.js?v=2"></script>
+    <script src="../animations.js?v=7"></script>
+  </body>
+</html>
