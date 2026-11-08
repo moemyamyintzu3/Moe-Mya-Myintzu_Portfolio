@@ -670,6 +670,12 @@
     margin-top: 32px;
   }
 
+  /* The button comes after the phones, so it's the last thing in the card. */
+  .is-responsive .case-card__button {
+    order: 2;
+    margin-top: 32px;
+  }
+
   /* ---------- Footer: three columns, smaller gap ---------- */
 
   .is-responsive .footer__inner {

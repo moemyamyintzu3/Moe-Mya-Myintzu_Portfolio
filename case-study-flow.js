@@ -25,6 +25,12 @@
 
   const read = (el, name) => parseFloat(el.style.getPropertyValue(name));
 
+  // Where a unit ends on the canvas. Images know their height. Text doesn't, so
+  // it counts from where it starts.
+  function bottomOf(unit) {
+    return Math.max(...unit.parts.map((p) => p.y + (parseFloat(p.el.getAttribute('height')) || 0)));
+  }
+
   function widthOf(el) {
     const w = read(el, '--w');
     if (!Number.isNaN(w)) return w;
@@ -110,10 +116,24 @@
     let run = [];
     const endRun = () => {
       if (!run.length) return;
-      const left = run.filter((u) => u.x < MIDDLE);
-      const right = run.filter((u) => u.x >= MIDDLE);
-      if (left.length && right.length) blocks.push({ columns: [left, right] });
-      else run.forEach((u) => blocks.push({ unit: u }));
+      let left = run.filter((u) => u.x < MIDDLE);
+      let right = run.filter((u) => u.x >= MIDDLE);
+      if (left.length && right.length) {
+        // A piece that starts below everything in the other column, like a
+        // closing line under a grid, comes after the columns instead.
+        const leftEnd = Math.max(...left.map(bottomOf));
+        const rightEnd = Math.max(...right.map(bottomOf));
+        const after = [
+          ...left.filter((u) => u.y > rightEnd),
+          ...right.filter((u) => u.y > leftEnd),
+        ].sort((a, b) => a.y - b.y || a.x - b.x);
+        left = left.filter((u) => !after.includes(u));
+        right = right.filter((u) => !after.includes(u));
+        blocks.push({ columns: [left, right] });
+        after.forEach((u) => blocks.push({ unit: u }));
+      } else {
+        run.forEach((u) => blocks.push({ unit: u }));
+      }
       run = [];
     };
     ordered.forEach((unit) => {
