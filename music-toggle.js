@@ -2,9 +2,9 @@
 // Music is on by default. It tries to start when the page loads, and if the
 // browser blocks that, it starts on the visitor's first click, tap, or key press.
 // Visitors who turn it off keep it off on later visits.
-// To change the track, replace public/audio/lofi.mp3 (see TRACK_PATH below).
+// To change the track, replace audio/lofi.mp3 (see TRACK_PATH below).
 (function () {
-  const TRACK_PATH = 'public/audio/lofi.mp3'; // Relative to the site root.
+  const TRACK_PATH = 'audio/lofi.mp3'; // Relative to the site root.
   const STORAGE_KEY = 'lofi-music';
   const VOLUME = 0.3;
   const FADE_MS = 1000;
