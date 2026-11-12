@@ -2,14 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <!-- Matches the page background to the saved theme, so dark mode never flashes light. -->
+    <script>
+      (function () {
+        var theme = null;
+        try { theme = localStorage.getItem("theme"); } catch (error) {}
+        document.documentElement.dataset.theme = theme === "dark" ? "dark" : "light";
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Moe Mya Myintzu_Portfolio</title>
     <link rel="icon" type="image/png" href="namelogo.png" />
     <link rel="apple-touch-icon" href="namelogo.png" />
-    <!-- The site starts on the Work page. The old Home page is kept as home.html. -->
-    <meta http-equiv="refresh" content="0; url=pages/work.html" />
-    <script>location.replace("pages/work.html" + location.hash);</script>
+    <!--
+      This page is the site frame. It shows each page inside the frame below
+      and keeps the background music here, so the music doesn't stop or start
+      over when a visitor moves to another page. See site-shell.js.
+    -->
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #f8f7f5;
+      }
+      html[data-theme="dark"],
+      html[data-theme="dark"] body {
+        background: #141413;
+      }
+      .site-frame {
+        position: fixed;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
   </head>
   <body>
-    <a href="pages/work.html">Go to my work</a>
+    <iframe class="site-frame" id="site-frame" title="Moe Mya Myintzu portfolio"></iframe>
+    <noscript><a href="pages/work.html">Go to my work</a></noscript>
+    <script src="site-shell.js?v=1"></script>
   </body>
 </html>

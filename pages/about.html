@@ -12,6 +12,15 @@
         document.documentElement.dataset.theme = theme;
       })();
     </script>
+    <!-- Opened on its own (a shared link or a refresh): show this page inside the
+         site frame, which keeps the background music playing between pages. -->
+    <script>
+      (function () {
+        if (window.top !== window || !/^https?:$/.test(location.protocol)) return;
+        var root = new URL("../", location.href).pathname;
+        location.replace(root + "?p=" + encodeURIComponent(location.pathname) + location.hash);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Moe Mya Myintzu_Portfolio</title>
     <link rel="icon" type="image/png" href="../namelogo.png" />
@@ -279,7 +288,7 @@
     <script src="https://cdn.jsdelivr.net/npm/motion@14.6.0/dist/motion.js" integrity="sha384-wyFtoWIFus6Butv1mjUTfcosTs0hTxLly4xsBL9KKBbd+WuuXov75vD9yhy5UZv9" crossorigin="anonymous"></script>
     <script src="../navbar-motion.js?v=2"></script>
     <script src="../resume-button.js?v=1"></script>
-    <script src="../music-toggle.js?v=3"></script>
+    <script src="../music-toggle.js?v=5"></script>
     <script src="../theme.js?v=3"></script>
     <script src="../mobile-menu.js?v=2"></script>
     <script src="../certificates.js?v=2"></script>
